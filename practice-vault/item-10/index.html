@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>guess - the - number</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      body {
+        font-family: 'Sour Gummy';
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-variation-settings: 'wdth' 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="pickRange(0, 10)">0-10</button>
+      <button onclick="pickRange(11, 20)">11-20</button>
+      <button onclick="pickRange(21,30)">21-30</button>
+      <div class="player-choice">Player picks: ???</div>
+      <div class="computer-picks">Robot picks: ???</div>
+      <div class="winner">Winner: ???</div>
+    </div>
+    <script>
+      function pickRange(min, max) {
+        let playerChoiceMessage = `Player picks: ${min} - ${max}`;
+        console.log(playerChoiceMessage);
+        document.querySelector('.player-choice').innerHTML =
+          playerChoiceMessage;
+        let randomNumber = Math.round(Math.random() * 30);
+        let robotChoiceMessage = `Computer picks: ${randomNumber}`;
+        document.querySelector('.computer-picks').innerHTML =
+          robotChoiceMessage;
+
+        let resultMessage = '';
+        if (randomNumber > min && randomNumber < max) {
+          console.log('player wins');
+          resultMessage = `YOU WIN`;
+        } else {
+          console.log('robot wins');
+          resultMessage = `YOU LOSE`;
+        }
+        document.querySelector('.winner').innerHTML = resultMessage;
+      }
+    </script>
+  </body>
+</html>

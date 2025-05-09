@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue riding hood</title>
+    <link rel="stylesheet" type="text/css" href="global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      .text {
+        text-align: center;
+      }
+
+      .door-img {
+        width: 1060px;
+        height: 480px;
+      }
+
+      .number {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50px;
+        box-shadow: 0 0 20px black;
+      }
+
+      .number-3 {
+        left: 548px;
+        bottom: 232px;
+        animation: ani-number-3 3s forwards infinite;
+        animation-delay: 2s;
+      }
+
+      @keyframes ani-number-3 {
+        25% {
+          opacity: 0;
+          transform: scale(2);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        75% {
+          opacity: 0;
+          transform: scale(2);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .number-5 {
+        text-decoration: none;
+        color: black;
+        left: 290px;
+        bottom: 200px;
+        animation: ani-number-5 3s forwards infinite;
+        animation-delay: 2s;
+      }
+
+      @keyframes ani-number-5 {
+        30% {
+          left: 500px;
+          bottom: 300px;
+          opacity: 0;
+        }
+        60% {
+          left: 700px;
+          bottom: 200px;
+          opacity: 0.5;
+        }
+        80% {
+          opacity: 0;
+        }
+        100% {
+          left: 300px;
+          bottom: 200px;
+          opacity: 1;
+        }
+      }
+
+      .number-7 {
+        left: 350px;
+        bottom: 150px;
+        animation: ani-number-7 4s forwards infinite;
+        animation-delay: 2s;
+      }
+
+      @keyframes ani-number-7 {
+        30% {
+          left: 750px;
+          bottom: 250px;
+        }
+        60% {
+          left: 250px;
+          bottom: 300px;
+        }
+        100% {
+          left: 350px;
+          bottom: 150px;
+        }
+      }
+
+      .blue-riding-hood-img {
+        width: 140px;
+        position: absolute;
+        z-index: 3;
+        left: 330px;
+        bottom: -250px;
+        animation: move-from-bottom 3s forwards;
+        animation-delay: 2s;
+      }
+
+      @keyframes move-from-bottom {
+        100% {
+          bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="indie-flower-regular">
+    <div class="container">
+      <div class="page page-5 tilt-in-fwd-tr">
+        <div class="text text-align-center">
+          <div>
+            <span class="blue">Blue</span> stands in front of the mysterious
+            door, puzzled by a riddle inscribed on a mysterious door. The riddle
+            reads.
+          </div>
+          <div class="text-bold">
+            "I am not alive, but I grow; I don't have lungs, but I need air; I
+            don't have a mouth, but water kills me. What number am I?"
+          </div>
+          <div>What should Blue Riding Hood press to open the door?</div>
+        </div>
+        <div class="room">
+          <a
+            class="number number-7 lobster-regular"
+            onclick="alert('Oops, wrong answer! Try again!')"
+            >7</a
+          >
+          <a
+            class="number number-3 lobster-regular"
+            onclick="alert('Oops, wrong answer! Try again!')"
+            >3</a
+          >
+          <a class="number number-5 lobster-regular" href="page-6.html">5</a>
+
+          <img
+            class="door-img"
+            src="https://img.freepik.com/free-vector/abandoned-dungeon-medieval-castle-night-interior-with-moonlight-fall-wood-arched-door-barred-window-shadow-cracked-stone-wall-with-spiderweb-dilapidated-palace-cartoon-vector-illustration_107791-7764.jpg?t=st=1718321535~exp=1718325135~hmac=6521aff0ab463f98b2414c5859e708ae12e0eecb4ed1742f04cce9b99eeb7197&w=1380"
+          />
+          <img
+            class="blue-riding-hood-img"
+            src="https://labs.learnosity.com/solutions/sales-enablement/custom-ui/blue-riding-hood/assets/img/blueridinghood.png"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

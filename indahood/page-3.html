@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue riding hood</title>
+    <link rel="stylesheet" type="text/css" href="global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+
+
+      .text-bold {
+        display: flex;
+        justify-content: center;
+      }
+
+      .room-background {
+        width: 1100px;
+      }
+
+      .room button img {
+        width: 50px;
+      }
+
+      .room button {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+      }
+
+      .room {
+        position: relative;
+      }
+
+      .bandaid {
+        left: 260px;
+        bottom: 276px;
+      }
+
+      .lantern {
+        left: 412px;
+        bottom: 135px;
+      }
+
+      .esky {
+        right: 135px;
+        bottom: 112px;
+      }
+
+      .camera {
+        right: 135px;
+        bottom: 205px;
+      }
+
+      .weapon {
+        left: 228px;
+        bottom: 190px;
+      }
+
+      .tea {
+        left: 560px;
+        bottom: 187px;
+      }
+
+      .blue-riding-hood-img {
+        width: 140px;
+        position: absolute;
+        left: -300px;
+        bottom: 0;
+        animation: move-from-left 3s forwards;
+        animation-delay: 2s;
+      }
+
+      @keyframes move-from-left {
+        100% {
+          left: 250px;
+        }
+      }
+
+button {
+  animation: buttonsss 7s infinite;
+}
+
+@keyframes buttonsss {
+  0% {
+    box-shadow: 0 0 20px 10px red; /* Darkest Blue */
+  }
+  16% {
+    box-shadow: 0 0 20px 10px orange; /* Baby Blue */
+  }
+  33% {
+    box-shadow: 0 0 20px 10px yellow; /* Blue */
+  }
+  50% {
+    box-shadow: 0 0 20px 10px green; /* Darkest Blue */
+  }
+  66% {
+    box-shadow: 0 0 20px 10px blue; /* Blue */
+  }
+  83% {
+    box-shadow: 0 0 20px 10px purple; /* Baby Blue */
+  }
+  100% {
+    box-shadow: 0 0 20px 10px pink; /* Darkest blue */
+  }
+}
+
+    </style>
+  </head>
+  <body class="indie-flower-regular">
+    <div class="container">
+      <div class="page page-3 tilt-in-fwd-tr">
+        <div>
+          <div>
+            <span class="blue">Blue</span> Riding Hood has received a
+            hand-written letter explaining that her grandmother is ill!
+          </div>
+          <div class="text-bold">What gift should she take?</div>
+        </div>
+        <div class="room">
+          
+          <button
+            class="bandaid"
+            onclick="alert('Ehhh??? Who in world would think bandage is a good gift???')"
+          >
+            <img
+              src="https://assets.learnosity.com/organisations/130/5f675491-368b-4d17-b774-0f427e70c1f0.png"
+            />
+          </button>
+
+          <button
+            class="weapon"
+            onclick="alert('Wise guy, eh? We have a no weapons policy. Behave yourself :))')"
+          >
+            <img
+              src="https://assets.learnosity.com/organisations/130/05326635-4696-4891-9940-3e14f6e905a4.png"
+            />
+          </button>
+          <button class="lantern">
+            <a href="page-4.html">
+            <img
+              src="https://assets.learnosity.com/organisations/130/73ac8f4a-55b4-4e3d-a59d-d8d5d86561ba.png"
+            />
+            </a>
+          </button>
+          <button
+            class="camera"
+            onclick="alert('You wanna take a photo of your sicky grandma??? Not good!')"
+          >
+            <img
+              src="https://assets.learnosity.com/organisations/130/d584437d-2927-4da9-b09c-c68ae4f2907a.png"
+            />
+          </button>
+          <button class="esky">
+            <a href="page-4.html">
+            <img
+              src="https://assets.learnosity.com/organisations/130/44acaa25-b9aa-4986-bd92-d20b2e9b1d69.png"
+            />
+          </button>
+          <button class="tea">
+            <a href="page-4.html">
+            <img
+              src="https://assets.learnosity.com/organisations/130/c725b75f-e31d-426b-a813-48fe350b5699.png"
+            />
+          </button>
+
+          <img
+            class="room-background"
+            src="https://img.freepik.com/free-vector/living-room-interior-with-furniture-tv_107791-18728.jpg?&w=1380"
+          />
+
+          <img
+            class="blue-riding-hood-img"
+            src="https://labs.learnosity.com/solutions/sales-enablement/custom-ui/blue-riding-hood/assets/img/blueridinghood.png"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

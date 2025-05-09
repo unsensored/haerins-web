@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock - Paper - Scissor</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      body {
+        font-family: 'Sour Gummy';
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-variation-settings: 'wdth' 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="playerPick('rock')">Rock</button>
+      <button onclick="playerPick('paper')">Paper</button>
+      <button onclick="playerPick('scissors')">Scissor</button>
+      <div class="player-choice">Player picks: ???</div>
+      <div class="robot-choice">Robot picks: ???</div>
+      <div class="winner">Winner: ???</div>
+    </div>
+    <script>
+      function playerPick(choice) {
+        let randomNumber = Math.round(Math.random() * 2);
+        let robotChoice;
+        console.log('Random number', randomNumber);
+        if (randomNumber === 0) {
+          robotChoice = 'rock';
+        } else if (randomNumber === 1) {
+          robotChoice = 'paper';
+        } else {
+          robotChoice = 'scissor';
+        }
+
+        console.log('Robot Choice', robotChoice);
+
+        let message = `Player picks: ${choice}`;
+        document.querySelector('.player-choice').innerHTML = message;
+
+        let robotMessage = `Robot picks: ${robotChoice}`;
+        document.querySelector('.robot-choice').innerHTML = robotMessage;
+
+        let winner;
+
+        // 1st
+        if (choice === 'rock' && robotChoice === 'scissor') {
+          // rock > scissor
+          winner = 'Player';
+        } else if (choice === 'rock' && robotChoice === 'paper') {
+          // rock < paper
+          winner = 'Robot';
+        } else if (choice === 'scissor' && robotChoice === 'paper') {
+          // scissor > paper
+          winner = 'Player';
+        } else if (choice === 'scissor' && robotChoice === 'rock') {
+          // scissor < rock
+          winner = 'Robot';
+        } else if (choice == -'paper' && robotChoice === 'rock') {
+          // paper > rock
+          winner = 'Player';
+        } else if (choice === 'paper' && robotChoice === 'scissor') {
+          // paper < scissor
+          winner = 'Robot';
+        } else {
+          winner = 'Draw';
+        }
+
+        let winnerMessage;
+        if (winner === 'Draw') {
+          winnerMessage = "It's a draw!";
+        } else {
+          winnerMessage = `Winner: ${winner}`;
+        }
+
+        document.querySelector('.winner').innerHTML = winnerMessage;
+
+        console.log(winner);
+      }
+    </script>
+  </body>
+</html>

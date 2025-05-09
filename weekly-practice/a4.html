@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Template</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+      body {
+        font-family: 'Sour Gummy', sans-serif;
+        font-optical-sizing: auto;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      .button {
+        border: 2px solid;
+        border-radius: 5px;
+        height: 50px;
+        width: 170px;
+        font-family: 'Sour Gummy', sans-serif;
+        font-optical-sizing: auto;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .button.greeting {
+        border-color: pink;
+        color: pink;
+      }
+
+      .button.greeting:hover {
+        background-color: pink;
+        color: white;
+      }
+
+      .button.two {
+        border-color: cadetblue;
+        color: cadetblue;
+      }
+
+      .button.two:hover {
+        background-color: cadetblue;
+        color: white;
+      }
+
+      .button.three {
+        border-color: pink;
+        color: pink;
+      }
+
+      .button.three:hover {
+        background-color: pink;
+        color: white;
+      }
+
+      .rainmeter {
+        margin-top: 10px;
+        color: #333;
+      }
+
+      .button.four {
+        border-color: pink;
+        color: pink;
+      }
+
+      .button.four:hover {
+        background-color: pink;
+        color: white;
+      }
+
+      input {
+        border: 2px solid;
+        border-radius: 5px;
+        font-size: 20px;
+        height: 40px;
+        width: 100px;
+        font-family: 'Sour Gummy', sans-serif;
+        font-optical-sizing: auto;
+        border-color: pink;
+        color: pink;
+        text-align: center;
+      }
+
+      .x-number {
+        width: 50px;
+        margin-right: 5px;
+      }
+
+      .y-number {
+        width: 50px;
+        margin-left: 5px;
+      }
+
+      .button.five {
+        border-color: pink;
+        color: pink;
+      }
+
+      .button.five:hover {
+        background-color: pink;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 1st button -->
+      <button class="button greeting" onclick="popup('Hello!')">Welcome</button>
+      <!-- 2nd button -->
+      <button class="button two" onclick="popup2()">blue - yung kai</button>
+      <!-- 3rd button -->
+      <button class="button three" onclick="popup3()">
+        Change the weather
+      </button>
+      <div class="rainmeter">Howdy, what a nice day</div>
+      <!-- 4th button -->
+      <input class="number-input" type="number" min="0" max="10" />
+      <button class="button four" onclick="popup4()">Check result</button>
+      <div class="gradeChecker">Grade result</div>
+      <!-- 5th button -->
+      <div class="section 5">
+        <input class="x-number" type="number" />
+        <span>> or < </span>
+        <input class="y-number" type="number" />
+      </div>
+      <button class="button five" onclick="popup5()">
+        Check bigger number
+      </button>
+    </div>
+
+    <script>
+      // 1st function
+      function popup(message) {
+        alert(message);
+      }
+
+      // 2nd function
+      function popup2() {
+        let button = document.querySelector('.two');
+        alert(button.textContent);
+      }
+
+      // 3rd function
+      function popup3() {
+        let rainy = 'Oh my, what a rainy day!';
+        document.querySelector('.rainmeter').textContent = rainy;
+      }
+
+      // 4th function
+      function popup4() {
+        let numberInput = document.querySelector('.number-input').value;
+        let resultDiv = document.querySelector('.gradeChecker');
+
+        if (numberInput >= 10) {
+          resultDiv.innerHTML = `Fantastic! I have nothing else to teach you`;
+        } else if (numberInput >= 7 && numberInput <= 9) {
+          resultDiv.innerHTML = `Great job, but you still have a long way to go`;
+        } else if (numberInput >= 4 && numberInput <= 6) {
+          resultDiv.innerHTML = `Mate, try harder next time`;
+        } else if (numberInput >= 1 && numberInput <= 3) {
+          resultDiv.innerHTML = `Our center is open 24/7, the reception is over there`;
+        } else if (numberInput >= 0) {
+          resultDiv.innerHTML = `I give up`;
+        }
+      }
+
+      // 5th function
+      function popup5() {
+        let numberInputX = document.querySelector('.x-number').value;
+        let numberInputY = document.querySelector('.y-number').value;
+        let resultPopup1 = `${numberInputX} is greater than ${numberInputY}`;
+        let resultPopup2 = `${numberInputY} is greater than ${numberInputX}`;
+
+        if (numberInputX > numberInputY) {
+          alert(resultPopUp1);
+        } else if (numberInputY > numberInputX) {
+          alert(resultPopup2);
+        }
+      }
+    </script>
+  </body>
+</html>

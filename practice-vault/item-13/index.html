@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <style>
+      .container {
+        max-width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      /* this code isnt working */
+      button:hover {
+        background-color: #4f555c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="number" class="first-number" placeholder="First Number" />
+      <select class="operator">
+        <option value="plus">Plus</option>
+        <option value="minus">Minus</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
+      <input type="number" class="second-number" placeholder="Second Number" />
+
+      <button onclick="calculate()">Calculate</button>
+      <input type="number" class="result" readonly placeholder="Result" />
+    </div>
+
+    <script>
+      function calculate() {
+        // step 1
+        const firstNumber = Number(
+          document.querySelector('.first-number').value
+        );
+        const secondNumber = Number(
+          document.querySelector('.second-number').value
+        );
+
+        // step 2
+        const operator = document.querySelector('.operator').value;
+
+        // step 3
+        let result;
+
+        // step 4
+        if (operator === 'plus') {
+          result = firstNumber + secondNumber;
+        } else if (operator === 'minus') {
+          result = firstNumber - secondNumber;
+        } else if (operator === 'multiply') {
+          result = firstNumber * secondNumber;
+        } else if (operator === 'divide') {
+          result = firstNumber / secondNumber;
+        } else {
+          result = 'Invalid operator';
+        }
+
+        // result
+        document.querySelector('.result').value = result;
+      }
+    </script>
+  </body>
+</html>

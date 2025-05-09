@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    .photocard {
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    button {
+      border: 2px solid;
+      border-radius: 10px;
+      height: 30px;
+      width: 130px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      border-color: #bbb;
+      background-color: lightgrey;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <img
+        class="photocard"
+        src="https://i.pinimg.com/736x/38/f4/af/38f4af2a8e0c5f579bb406de52cc7348.jpg"
+      />
+    </div>
+    <button onclick="nextPhoto()">next photocard</button>
+  </body>
+
+  <script>
+    function nextPhoto() {
+      let imgElement = document.querySelector('.photocard');
+      let imgElement2 = document.querySelector('.photocard');
+      imgElement.src =
+        'https://i.pinimg.com/736x/41/b3/05/41b305ea488911d5160546d80aad2240.jpg';
+    }
+  </script>
+</html>

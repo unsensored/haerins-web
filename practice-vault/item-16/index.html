@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+      gap: 15px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    button {
+      border: 2px solid;
+      border-radius: 5px;
+      height: 50px;
+      width: 170px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      color: pink;
+      background-color: white;
+    }
+
+    button:hover {
+      background-color: pink;
+      color: white;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .red {
+      background-color: salmon;
+    }
+
+    .orange {
+      background-color: coral;
+    }
+
+    .yellow {
+      background-color: #ffff8f;
+    }
+
+    .green {
+      background-color: #afe1af;
+    }
+
+    .blue {
+      background-color: #89cff0;
+    }
+
+    .indigo {
+      background-color: #4b0082;
+    }
+
+    .violet {
+      background-color: #ee82ee;
+    }
+  </style>
+  <body>
+    <div class="container red">
+      <div class="buttons">
+        <button onclick="changeColor()">Change Colour</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function changeColor() {
+      let box = document.querySelector('.container');
+
+      if (box.classList.contains('red')) {
+        box.classList.remove('red');
+        box.classList.add('orange');
+      } else if (box.classList.contains('orange')) {
+        box.classList.remove('orange');
+        box.classList.add('yellow');
+      } else if (box.classList.contains('yellow')) {
+        box.classList.remove('yellow');
+        box.classList.add('green');
+      } else if (box.classList.contains('green')) {
+        box.classList.remove('green');
+        box.classList.add('blue');
+      } else if (box.classList.contains('blue')) {
+        box.classList.remove('blue');
+        box.classList.add('indigo');
+      } else if (box.classList.contains('indigo')) {
+        box.classList.remove('indigo');
+        box.classList.add('violet');
+      } else if (box.classList.contains('violet')) {
+        box.classList.remove('violet');
+        box.classList.add('red');
+      }
+    }
+  </script>
+</html>

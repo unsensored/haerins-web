@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Adopt Me Application</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccf;
+      }
+
+      .tracking-in-expand {
+        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
+          both;
+      }
+
+      @-webkit-keyframes tracking-in-expand {
+        0% {
+          letter-spacing: -0.5em;
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .concert-one-regular {
+        font-family: 'Concert One', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .reasons {
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      .name {
+        display: flex;
+        font-size: 30px;
+        margin-top: 10px;
+      }
+
+      .basic {
+        font-size: 20px;
+        display: flex;
+      }
+
+      .gender {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        margin-top: 10px;
+        margin-left: 30px;
+        border: #ccc solid;
+        background-color: #ccc;
+      }
+
+      .sub {
+        margin-top: 30px;
+        margin-left: 3px;
+      }
+
+      .container {
+        display: flex;
+        color: #555;
+        gap: 30px;
+        display: flex;
+        margin: 100px;
+        margin-right: 300px;
+        margin-left: 300px;
+        border: #ccc solid 2px;
+        background-color: white;
+      }
+
+      .apply-now {
+        border: solid #ccc 2px;
+      }
+
+      .heading {
+        border-bottom: 2px dashed gray;
+        margin-bottom: 5px;
+        margin-right: 30px;
+      }
+
+      .orange {
+        color: #ff4500;
+      }
+
+      .logo img {
+        border-radius: 100px;
+        width: 180px;
+        height: 180px;
+        border: 6px solid #eee;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container concert-one-regular">
+      <div class="logo">
+        <img src="picture.jpg" />
+      </div>
+
+      <div class="info">
+        <div class="heading tracking-in-expand">
+          <h1>Adopt Me Application</h1>
+        </div>
+        <div class="basic">
+          <div class="name">Prototype dog</div>
+          <div class="gender">
+            <span class="material-symbols-outlined"> female </span> Female
+          </div>
+        </div>
+        <div class="sub">
+          Reasons to adopt me
+          <div class="reasons">
+            <li>
+              <span class="orange">Low maintenance</span> I do need to take
+              shower frequently, just once a months is enough!!
+            </li>
+            <li>
+              <span class="orange">Professional napper</span> I can teach you
+              how to maximize your daily snooze time!
+            </li>
+            <li>
+              <span class="orange"> Expert at avoiding chores </span>the perfect
+              role model at chore avoidance, like pretending to be asleep or
+              hiding under a blanket!
+            </li>
+            <div class="apply-now">Apply Now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

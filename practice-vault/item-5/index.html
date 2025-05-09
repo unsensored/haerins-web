@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+
+    .la-belle-aurore-regular {
+      font-family: 'La Belle Aurore', cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url(https://img.freepik.com/free-photo/smooth-tan-smoke_23-2147734860.jpg?w=3000);
+    }
+
+    .container {
+      width: 500px;
+      height: 500px;
+      border: white solid 20px;
+      background: url(https://cdn.hero.page/pfp/54899c9b-88db-42df-91e6-0ad43a25645c-depressed-anime-girl-in-the-rain-aesthetics-depressed-anime-girl-pfp-2.png);
+      background-size: cover;
+      position: relative;
+    }
+
+    .caption {
+      color: crimson;
+      text-shadow: 1px 2px rgba(0, 0, 0, 0.7);
+      font-size: 40px;
+      width: 310px;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      opacity: 0;
+      line-height: 50px;
+      transform: rotate(0deg);
+      animation: word 3.5s linear forwards;
+    }
+
+    .vert-line {
+      width: 5px;
+      height: 500px;
+      background-color: white;
+      position: absolute;
+      left: 20px;
+      animation: vline 2.5s linear forwards;
+    }
+
+    .hori-line {
+      height: 5px;
+      width: 500px;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      animation: hline 2.5s linear forwards;
+    }
+
+    @keyframes word {
+      82% {
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(-10deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes vline {
+      100% {
+        width: 20px;
+        left: 430px;
+      }
+    }
+
+    @keyframes hline {
+      100% {
+        height: 20px;
+        top: 430px;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="hori-line"></div>
+      <div class="vert-line"></div>
+      <div class="caption la-belle-aurore-regular">
+        Tears are words the heart can't say
+      </div>
+    </div>
+  </body>
+</html>

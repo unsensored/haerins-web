@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue riding hood</title>
+    <link rel="stylesheet" type="text/css" href="global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      .heading {
+        text-align: center;
+        font-size: 17px;
+      }
+
+      .subheading {
+        font-size: 25px;
+        margin-top: 10px;
+      }
+
+      .section {
+        position: relative;
+      }
+
+      .section img {
+        border-radius: 10px;
+        height: 330px;
+        margin-top: 10px;
+        width: 460px;
+      }
+
+      .sections {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .section:hover {
+        animation: bigger 0.5s forwards;
+        z-index: 10000;
+      }
+
+      @keyframes bigger {
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      .text {
+        background-color: black;
+        opacity: 80%;
+        color: white;
+        text-align: center;
+        border-radius: 20px;
+        position: absolute;
+        font-size: 30px;
+        top: 40%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        left: 25px;
+        right: 25px;
+      }
+    </style>
+  </head>
+  <body class="indie-flower-regular">
+    <div class="container">
+      <div class="page page-4 tilt-in-fwd-tr">
+        <div class="heading">
+          <span class="blue">Blue</span> Riding Hood leaves home with her basket
+          and arrives at a crossroad.
+          <div class="subheading">Which road will she take?</div>
+        </div>
+        <div class="sections lobster-regular">
+          <div class="section">
+            <a href="ending-1.html">
+              <img
+                class="animated-rainbow"
+                src="https://img.freepik.com/free-vector/beautiful-landscape-nature-with-flat-illustration-valley-spruce-forest-nature-tourism-landscape-travel-mountains-adventure-concept_1150-37321.jpg"
+              />
+            </a>
+            <div class="text">The Fun Looong road</div>
+          </div>
+
+          <div class="section">
+            <a href="page-5.html">
+              <img
+                class="animated-rainbow"
+                src="https://img.freepik.com/free-vector/forest-scene-with-various-forest-trees_1308-61222.jpg"
+              />
+              <div class="text">The Boring Sneaky shortcut</div>
+            </a>
+          </div>
+        </div>
+        <div class="girl"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+      gap: 15px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    button {
+      border: 2px solid;
+      border-radius: 5px;
+      height: 50px;
+      width: 170px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      color: pink;
+      background-color: white;
+    }
+
+    button:hover {
+      background-color: pink;
+      color: white;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .red {
+      background-color: salmon;
+    }
+
+    .orange {
+      background-color: coral;
+    }
+
+    .yellow {
+      background-color: #ffff8f;
+    }
+  </style>
+  <body>
+    <div class="container red">
+      <div class="buttons">
+        <button onclick="changeColour()">Change Colour</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function changeColour() {
+      let colour = document.querySelector('.container');
+
+      if (colour.classList.contains('red')) {
+        colour.classList.remove('red');
+        colour.classList.add('orange');
+      } else if (colour.classList.contains('orange')) {
+        colour.classList.remove('orange');
+        colour.classList.add('yellow');
+      } else if (colour.classList.contains('yellow')) {
+        colour.classList.remove('yellow');
+        colour.classList.add('red');
+      }
+    }
+  </script>
+</html>

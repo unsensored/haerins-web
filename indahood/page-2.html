@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex" />
+    <title>Blue riding hood</title>
+    <link rel="stylesheet" type="text/css" href="global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      .page-2 {
+        gap: 100px;
+        overflow: hidden;
+      }
+
+      .text {
+        margin-bottom: 20px;
+      }
+
+      .blue-riding-hood-img {
+        width: 140px;
+        position: absolute;
+        left: -130px;
+        bottom: -130px;
+        animation-name: move-from-left;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+      }
+
+      .wolf-img {
+        width: 180px;
+        position: absolute;
+        right: -180px;
+        bottom: -180px;
+        animation: move-from-right 1.5s forwards;
+      }
+
+      @keyframes move-from-left {
+        100% {
+          left: -47px;
+          bottom: -40px;
+          transform: rotate(15deg);
+        }
+      }
+
+      @keyframes move-from-right {
+        100% {
+          right: -47px;
+          bottom: -60px;
+          transform: rotate(-15deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="indie-flower-regular">
+    <div class="container">
+      <div class="page page-2 tilt-in-fwd-tr">
+        <div class="title">
+          <div class="">The original story of</div>
+          <h1 class="lobster-regular">
+            <span class="blue text-pop-up-top">Blue</span>
+            <span class="text-pop-up-top">in Da Hood</span>
+          </h1>
+        </div>
+        <div>
+          <div class="text">
+            Once upon a time there was a little girl who was adored by the
+            woodland creatures and trees that lived in the surrounding forest.
+            Most of all, she was dearly loved by her grandmother, and there was
+            nothing that she would not have given for the child, except for
+            maybe a hip replacement.
+          </div>
+          <div>
+            One special occasion, the little girl was given a little riding hood
+            of <span class="blue"> blue</span> sand silk, which suited her so
+            well that she would never wear anything else. From then onwards, she
+            was always called 'Little <span class="blue"> Blue </span> Hood'.
+          </div>
+        </div>
+        <a href="page-3.html" class="lobster-regular primary-button heartbeat">
+          Continue <span class="material-icons"> login </span>
+        </a>
+
+        <img
+          class="blue-riding-hood-img move-from-left"
+          src="https://labs.learnosity.com/solutions/sales-enablement/custom-ui/blue-riding-hood/assets/img/blueridinghood.png"
+        />
+        <img
+          class="wolf-img"
+          src="https://labs.learnosity.com/solutions/sales-enablement/custom-ui/blue-riding-hood/assets/img/wolf.png"
+        />
+      </div>
+    </div>
+  </body>
+</html>

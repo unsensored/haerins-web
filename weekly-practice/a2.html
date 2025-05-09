@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      font-family: 'Sour Gummy';
+      font-optical-sizing: auto;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      border: 2px solid pink;
+      color: pink;
+      border-radius: 5px;
+      height: 50px;
+      width: 170px;
+      font-family: 'Sour Gummy';
+      font-optical-sizing: auto;
+    }
+
+    input {
+      font-family: 'Sour Gummy';
+      font-optical-sizing: auto;
+      border: 2px solid pink;
+      color: pink;
+      border-radius: 5px;
+      width: 150px;
+    }
+
+    .button1 {
+      margin-bottom: 30px;
+    }
+
+    .button2 {
+      margin-bottom: 30px;
+    }
+
+    .button3 {
+      margin-bottom: 30px;
+      gap: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button4 {
+      margin-bottom: 30px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button5 {
+      margin-bottom: 30px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button6 {
+      margin-bottom: 30px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: pink;
+    }
+
+    div {
+      color: pink;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>button freebies !!</h1>
+      <!-- 1st button -->
+      <div class="button1">
+        <button class="greeting" onclick="popup()">Welcome</button>
+      </div>
+      <!-- 2nd button -->
+      <div class="button2">
+        <button
+          class="duolingo"
+          onclick="popup2('Hola! Buenos dias. Como estas?')"
+        >
+          Spanish or vanish
+        </button>
+      </div>
+      <!-- 3rd button -->
+      <div class="button3">
+        <div class="div3">Empty</div>
+        <button class="changing" onclick="popup3()">
+          Change the div content
+        </button>
+      </div>
+      <!-- 4th button -->
+      <div class="button4">
+        <input class="dummy-input" placeholder="Type something..." />
+        <button class="four" onclick="popupInputValue()">
+          Get input value
+        </button>
+      </div>
+      <!-- 5th button -->
+      <div class="button5">
+        <div class="div5">Another empty div</div>
+        <input class="hello" placeholder="Type something..." />
+        <button onclick="transformer()">
+          Change div content based on input
+        </button>
+      </div>
+      <!-- 6th button -->
+      <div class="div6">Waiting for result...</div>
+      <input class="number-input" placeholder="Type a number" />
+      <button onclick="hundred()">Check if number is larger than 100</button>
+
+      <!-- 7th button -->
+      <input type="number" min="0" max="10" placeholder="Enter Result" />
+      <button></button>
+      <button></button>
+    </div>
+  </body>
+
+  <script>
+    // 1st function
+    function popup(message) {
+      alert('Hello!');
+    }
+    // 2nd function
+    function popup2(message) {
+      alert(message);
+    }
+    //3rd function
+    function popup3(message) {
+      let thirdMess;
+      thirdMess = 'Your content has been changed.';
+      document.querySelector('.div3').innerHTML = thirdMess;
+    }
+    //4th function
+    function popupInputValue() {
+      let myInput = document.querySelector('.dummy-input');
+      let myInputValue = myInput.value;
+
+      alert(myInputValue);
+    }
+    //5th function
+    function transformer() {
+      let transMessege = document.querySelector('.hello');
+      let transMessegeValue = transMessege.value;
+
+      document.querySelector('.div5').innerHTML = transMessegeValue;
+    }
+    // 6th function
+    function hundred() {
+      // Get the input value
+      let numberInput = document.querySelector('.number-input').value;
+      let resultDiv = document.querySelector('.div6');
+
+      // Comparison
+      if (numberInput > 100) {
+        resultDiv.innerHTML = `Input number ${numberInput} is larger than 100.`;
+      } else if (numberInput < 100) {
+        resultDiv.innerHTML = `Input number ${numberInput} is smaller than 100.`;
+      } else {
+        resultDiv.innerHTML = `Input number ${numberInput} is 100.`;
+      }
+    }
+  </script>
+</html>

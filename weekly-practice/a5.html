@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    li {
+      padding: 8px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    input {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      border: 2px solid #bbb;
+      border-radius: 5px;
+    }
+    button {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      border: 2px solid #bbb;
+      border-radius: 5px;
+      padding: 8px 15px;
+      background-color: lightgrey;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+
+  <body>
+    <input
+      class="list-input"
+      type="text"
+      id="itemInput"
+      placeholder="Enter list item"
+    />
+    <button onclick="addToList()">Add to List</button>
+    <ul class="item-list" id="itemList"></ul>
+  </body>
+
+  <script>
+    function addToList() {
+      const input = document.querySelector('.list-input');
+      const list = document.querySelector('.item-list');
+      const text = input.value;
+
+      if (text) {
+        const newItem = `<li>${text}</li>`;
+        list.innerHTML = list.innerHTML + newItem;
+      }
+    }
+  </script>
+</html>

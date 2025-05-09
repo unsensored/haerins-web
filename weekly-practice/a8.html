@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+      gap: 15px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    button {
+      border: 2px solid;
+      border-radius: 5px;
+      height: 50px;
+      width: 170px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      color: pink;
+      background-color: white;
+    }
+
+    button:hover {
+      background-color: pink;
+      color: white;
+      border-color: pink;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    input {
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      padding: 8px;
+      width: 300px;
+      box-sizing: border-box;
+      margin-bottom: 2px;
+      border: 2px solid #bbb;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input class="ynumber" type="number" placeholder="Enter Number" />
+      <input class="xnumber" type="number" placeholder="Enter Number" />
+      <input type="number" class="result" readonly placeholder="Result" />
+      <div class="buttons">
+        <button>Find the sum</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function addition() {
+      // step 1
+      let firstNumber = Number(document.querySelector('.ynumber').value);
+      let secondNumber = Number(document.querySelector('.xnumber').value);
+
+      let sum = firstNumber + secondNumber;
+
+      document.querySelector('result').value = `Result: ${sum}`;
+    }
+  </script>
+</html>

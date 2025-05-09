@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      width: 150px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      color: white;
+    }
+
+    .simple {
+      background-color: #aaa;
+    }
+
+    .fancy {
+      background-color: #007bff;
+    }
+
+    .name {
+      color: pink;
+      font-size: 125%;
+    }
+
+    .age {
+      text-decoration: underline;
+      color: cornflowerblue;
+      font-size: 30px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Hello...</h1>
+      <div class="buttons">
+        <button class="simple" onclick="simpleIntro()">
+          Simple introduction
+        </button>
+        <button class="fancy" onclick="fancyIntro()">Fancy introduction</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function simpleIntro() {
+      let simpleMessage = `Hello, I'm Sarah, 12 years old!`;
+      document.querySelector('h1').innerHTML = simpleMessage;
+    }
+
+    function fancyIntro() {
+      let fancyMessage = `Hello,  <span class="name">I'm Sarah<span>, <span class="age">12 years old!<span>`;
+      document.querySelector('h1').innerHTML = fancyMessage;
+    }
+  </script>
+</html>

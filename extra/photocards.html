@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jihoon & Hyunwook Photocard Collection</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      background: linear-gradient(
+        135deg,
+        #fff5f5 0%,
+        #f8f8ff 50%,
+        #f5f5ff 100%
+      );
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .header h1 {
+      font-family: 'Sour Gummy', cursive;
+      color: #ff6b8b;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      color: #888;
+      margin-top: 0;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .polaroid-container {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      perspective: 1000px;
+    }
+
+    .polaroid-effect {
+      background: white;
+      padding: 15px 15px 60px;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transform: rotate(1deg);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photocard {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .polaroid-effect:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .polaroid-effect:hover .photocard {
+      transform: translateY(-5px) rotateY(5deg);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 50px;
+      height: 45px;
+      width: 180px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #ff6b8b, #ff8e53);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      z-index: 10;
+      margin-top: 50px;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(255, 107, 139, 0.4);
+      background: linear-gradient(45deg, #ff8e53, #ff6b8b);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .photo-counter {
+      font-family: 'Fredoka', sans-serif;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #aaa;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div class="header">
+      <h1>Jihoon & Hyunwook</h1>
+      <p>Digital Photocard Collection</p>
+    </div>
+
+    <div class="main-content">
+      <div class="polaroid-container">
+        <div class="polaroid-effect">
+          <img
+            class="photocard fade-in"
+            src="https://i.pinimg.com/736x/38/f4/af/38f4af2a8e0c5f579bb406de52cc7348.jpg"
+            alt="Park Jihoon Photocard"
+          />
+        </div>
+      </div>
+
+      <div class="controls">
+        <button onclick="nextPhoto()">
+          <i class="fas fa-arrow-right"></i>
+          Next Photocard
+        </button>
+        <div class="photo-counter" id="counter">Photo 1 of 4</div>
+      </div>
+    </div>
+
+    <div class="signature">Made with ♡ by a Weak Hero fan</div>
+  </body>
+
+  <script>
+    const photos = [
+      {
+        url: 'https://i.pinimg.com/736x/38/f4/af/38f4af2a8e0c5f579bb406de52cc7348.jpg',
+        name: 'Choi Hyunwook - Casual',
+      },
+      {
+        url: 'https://i.pinimg.com/736x/41/b3/05/41b305ea488911d5160546d80aad2240.jpg',
+        name: 'Choi Hyunwook - Blonde Hair',
+      },
+      {
+        url: 'https://i.pinimg.com/736x/62/d5/4c/62d54cbc14b256f7d9bff404156dfc2f.jpg',
+        name: 'Park Jihoon - Photoshoot',
+      },
+      {
+        url: 'https://i.pinimg.com/736x/c0/28/0e/c0280eee632645aa45b4220c56b1625a.jpg',
+        name: 'Choi Hyunwook - Photoshoot',
+      },
+    ];
+
+    let currentPhoto = 0;
+    const counterElement = document.getElementById('counter');
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      updatePhoto();
+    }
+
+    function updatePhoto() {
+      const imgElement = document.querySelector('.photocard');
+      const polaroid = document.querySelector('.polaroid-effect');
+
+      // Add fade out effect
+      imgElement.style.opacity = '0';
+      imgElement.style.transform = 'scale(0.95)';
+      polaroid.style.transform = 'rotate(1deg) scale(0.98)';
+
+      setTimeout(() => {
+        imgElement.src = photos[currentPhoto].url;
+        imgElement.alt = photos[currentPhoto].name;
+
+        // Reset animation and add fade in
+        imgElement.classList.remove('fade-in');
+        void imgElement.offsetWidth; // Trigger reflow
+        imgElement.classList.add('fade-in');
+
+        imgElement.style.opacity = '1';
+        imgElement.style.transform = 'scale(1)';
+        polaroid.style.transform = 'rotate(1deg) scale(1)';
+
+        // Update counter
+        counterElement.textContent = `Photo ${currentPhoto + 1} of ${
+          photos.length
+        }`;
+      }, 300);
+    }
+  </script>
+</html>

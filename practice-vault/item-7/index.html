@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+    .heartbeat {
+      animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+
+    @keyframes heartbeat {
+      from {
+        transform: scale(1);
+        transform-origin: center center;
+        animation-timing-function: ease-out;
+      }
+      10% {
+        transform: scale(0.91);
+        animation-timing-function: ease-in;
+      }
+      17% {
+        transform: scale(0.98);
+        animation-timing-function: ease-out;
+      }
+      33% {
+        transform: scale(0.87);
+        animation-timing-function: ease-in;
+      }
+      45% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+      }
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      margin-top: 80px;
+      border: #a0bda8 solid 10px;
+      border-bottom-color: #d1ffbd;
+      border-left-color: #d1ffbd;
+      padding: 20px;
+      width: 500px;
+      font-family: 'SUSE', sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .container-body {
+      border: cornflowerblue dotted 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 130px;
+    }
+
+    .name {
+      border-bottom: gray dotted 2px;
+      width: 300px;
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .heading {
+      font-style: italic;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .subject {
+      font-size: 30px;
+      font-weight: 600;
+      color: orangered;
+      text-shadow: 2px 2px 1px #333;
+      animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+
+    .img-1 {
+      position: absolute;
+      left: -3px;
+      top: 2px;
+      width: 80px;
+      transform: rotate(-10deg);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="container-body">
+        <img
+          class="avatar"
+          src="https://cdn.discordapp.com/emojis/1244447718978617454.gif?"
+        />
+        <div class="heading">Certificate</div>
+        <div class="subheading">for completing</div>
+        <div class="subject">HTML / CSS Code Ninja Trial</div>
+        <div class="belongs-to">This certificate is passed down to</div>
+        <div class="name">Sarah Hoang</div>
+      </div>
+      <img
+        class="img-1"
+        src="https://cdn.discordapp.com/emojis/1170153156047544481.gif"
+      />
+    </div>
+  </body>
+</html>

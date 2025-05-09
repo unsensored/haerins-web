@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sarah Hoang</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+      body {
+        font-size: 14px;
+        background-color: #0e0e0e;
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        color: #8aacc9;
+      }
+
+      .logo img {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        border: 2px solid #8aacc9;
+        box-shadow: 0 0 15px #8aacc9;
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+      }
+
+      .menu a {
+        color: gray;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .menu .active {
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #8aacc9;
+        border-radius: 4px;
+      }
+
+      .summary {
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+        margin-top: 50px;
+      }
+
+      .summary-item-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .summary-item-content {
+        display: flex;
+        gap: 30px;
+        text-align: center;
+        color: #8aacc9;
+      }
+
+      .summary-item-number {
+        font-size: 35px;
+      }
+
+      .facts {
+        margin-top: 140px;
+        display: flex;
+        align-items: center;
+      }
+
+      .facts-image img {
+        width: 300px;
+      }
+
+      .facts-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .facts-content {
+        flex: 1;
+      }
+
+      .facts-title {
+        font-size: 30px;
+        border-bottom: 4px solid #8aacc9;
+      }
+
+      .facts-content li {
+        margin-bottom: 15px;
+      }
+
+      iframe {
+        width: 350px;
+        height: 200px;
+      }
+      .favourite-title {
+        font-size: 30px;
+        border-bottom: 4px solid #8aacc9;
+        margin-bottom: 20px;
+      }
+
+      .favourite-content {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .credits-header {
+        color: #8aacc9;
+        display: flex;
+        margin-top: 70px;
+        margin-left: 70px;
+      }
+
+      .credits {
+        margin-top: 15px;
+        margin-left: -57px;
+        color: white;
+      }
+
+      .blue {
+        color: #8aacc9;
+      }
+
+      .animated-rainbow {
+        animation: rainbowShadow 7s infinite;
+      }
+
+      @keyframes rainbowShadow {
+        0% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.7); /* Darkest Blue */
+        }
+        16% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.2); /* Baby Blue */
+        }
+        33% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.6); /* Blue */
+        }
+        50% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.1); /* Darkest Blue */
+        }
+        66% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.6); /* Blue */
+        }
+        83% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.2); /* Baby Blue */
+        }
+        100% {
+          box-shadow: 0 0 20px 10px rgba(0, 132, 255, 0.7); /* Darkest blue */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="location">Sydney, AU</div>
+        <div class="logo">
+          <img
+            class="animated-rainbow"
+            src="https://i.pinimg.com/564x/88/80/a2/8880a22ba9bb492cd06f8e12c179fa94.jpg"
+          />
+          <div>Sarah Hoang</div>
+        </div>
+
+        <div class="menu">
+          <a class="active">Home</a>
+          <a>My Games</a>
+          <a>My Friends List</a>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="summary-item">
+          <div class="summary-item-title">Watched</div>
+          <div class="summary-item-content">
+            <div>
+              <div class="summary-item-number">47</div>
+              <div class="summary-item-text">Movies</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">03</div>
+              <div class="summary-item-text">Series</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">02</div>
+              <div class="summary-item-text">Docs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-item-title">Games Played</div>
+          <div class="summary-item-content">
+            <div>
+              <div class="summary-item-number">56</div>
+              <div class="summary-item-text">Action</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">07</div>
+              <div class="summary-item-text">FPS</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">05</div>
+              <div class="summary-item-text">RPG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-item-title">Time spent sleeping</div>
+          <div class="summary-item-content">
+            <div>
+              <div class="summary-item-number">4.23</div>
+              <div class="summary-item-text">Years</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">05</div>
+              <div class="summary-item-text">Months</div>
+            </div>
+
+            <div>
+              <div class="summary-item-number">04</div>
+              <div class="summary-item-text">Days</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="facts-image">
+          <img
+            src="https://64.media.tumblr.com/a071d07270d2f4e3563d115784daf7d3/tumblr_p3y2imQ0Hf1qzm8dwo1_400.gif"
+          />
+        </div>
+        <div class="facts-content">
+          <div class="facts-title">About me</div>
+          <ul>
+            <li>Food >></li>
+            <li>Tech brawn</li>
+            <li>Music = medicine</li>
+          </ul>
+        </div>
+      </div>
+      <div class="favourite">
+        <div class="favourite-title">My favourite videos</div>
+
+        <div class="favourite-content">
+          <div>
+            <iframe
+              class="animated-rainbow"
+              src="https://www.youtube.com/embed/eWtu05vWQ4U?si=cKyXku3SpqpkdcOW"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div>
+            <iframe
+              class="animated-rainbow"
+              src="https://www.youtube.com/embed/rjRsEfZE_Pg?si=kCsF9PKnBtvfJ6EJ"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div>
+            <iframe
+              class="animated-rainbow"
+              src="https://www.youtube.com/embed/BU0FVuxuPu8?si=gO9tO8rGjor9ljCI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="credits-header">
+        credits:
+        <div class="credits">
+          coded by <span class="blue"> me</span> w/ help from my
+          <span class="blue"> awesome coding teacher</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

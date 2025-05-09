@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'SUSE', sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 12.5px;
+    }
+
+    .content {
+      display: flex;
+      margin: 20px;
+      margin-top: 120px;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .paragraphs-1 {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    .paragraphs-2 {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    .cover img {
+      max-height: 100vh;
+    }
+
+    .cover {
+      flex: 1;
+      position: relative;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .text {
+      display: flex;
+      border: white 3px solid;
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      position: absolute;
+      top: 250px;
+      left: calc(50% - 50px);
+      text-align: center;
+      padding: 5px;
+    }
+
+    .decor-1 {
+      display: flex;
+      border: white 3px solid;
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      position: absolute;
+      top: 250px;
+      left: calc(50% - 50px);
+      transform: rotate(45deg);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="cover">
+        <img
+          src="https://r2.erweima.ai/imgcompressed/compressed_800eb83437593b85014f654b7123448e.webp"
+        />
+        <div class="shapes">
+          <div class="shape-1"></div>
+          <div class="shape-2"></div>
+          <div class="decor-1"></div>
+          <div class="text">
+            In the heart of the forest, you find the quiet wisdom of nature and
+            the freedom to wander
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="paragraphs-1">
+          <div>
+            The forest is a world of its own, filled with mystery and beauty. As
+            soon as you step under the canopy of trees, the air changes—it
+            becomes cooler, fresher, and alive with the sounds of rustling
+            leaves, chirping birds, and distant animal calls. Sunlight filters
+            through the branches, casting dappled shadows on the forest floor,
+            creating a peaceful, almost magical atmosphere.
+          </div>
+          <div>
+            Forests are home to an incredible variety of life. From towering
+            trees that have stood for centuries to the smallest insects, each
+            plays a vital role in the ecosystem. The balance of life here is
+            delicate but powerful, as every plant and creature contributes to
+            the health of the environment, working in harmony to sustain the
+            natural world.
+          </div>
+          <div>
+            Walking through a forest can be a deeply calming experience. The
+            gentle sway of the trees, the earthy scent of moss and soil, and the
+            sense of solitude can help clear your mind and bring a sense of
+            peace. It is a place where time slows down, and you can reconnect
+            with nature, far away from the hustle and bustle of everyday life.
+          </div>
+        </div>
+        <div class="paragraphs-2">
+          <div>
+            Forests also play a critical role in sustaining the planet. They
+            absorb carbon dioxide, produce oxygen, and provide habitats for
+            countless species. In many ways, forests are the lungs of the Earth,
+            purifying the air and regulating the climate, making them essential
+            for the well-being of all life forms.
+          </div>
+          <div>
+            In the end, the forest is more than just a collection of trees—it's
+            a reminder of the interconnectedness of all living things. It
+            teaches us to respect nature's rhythms and to understand that we are
+            just one part of a much larger, intricate system. A walk through the
+            woods is a journey not just through nature, but through ourselves.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
