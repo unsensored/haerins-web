@@ -5,6 +5,8 @@
   font-weight: bold;
 }
 
+
+
 .animated-rainbow {
   animation: rainbowShadow 7s infinite;
 }

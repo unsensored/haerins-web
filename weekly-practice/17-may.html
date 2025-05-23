@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <title>HTML Template</title>
+ </head>
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Sour Gummy', sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+div {
+gap: 30px;
+margin-top: 50px;
+}
+
+button {
+  border: 2px solid;
+  border-radius: 5px;
+  height: 50px;
+  width: 170px;
+  font-family: 'Sour Gummy', sans-serif;
+  font-optical-sizing: auto;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: white;
+        color: pink;
+}
+
+button:hover {
+        background-color: pink;
+        color: white;
+      }
+
+
+input {
+  border: 2px solid;
+  border-radius: 5px;
+  font-family: 'Sour Gummy', sans-serif;
+  font-optical-sizing: auto;
+}
+
+ </style>
+ <body>
+  <div class="button1">
+  <button class="first" onclick="changeText()">Click Me!</gbutton>
+</div>
+<div class="button2">
+  <input class="input2" type="text" placeholder="Type something..."/>
+  <button class="second" onclick="echoText()">Echo</button>
+  <p class="paragraph2"></p>
+</div>
+
+ </body>
+ <script>
+
+function changeText() {
+  let button1 = document.querySelector(".first");
+  button1.innerHTML = 'Clicked'
+}
+
+function echoText() {
+  let input = document.querySelector(".input2");
+  let paragraph = document.querySelector(".paragraph2");
+  let text = input.value;
+
+  if (text) {
+    paragraph.innerHTML = text;
+    input.value = "";
+  }
+}
+
+ </script>
+</html>
