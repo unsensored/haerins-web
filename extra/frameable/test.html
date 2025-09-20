@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #fff;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .sidebar h2 {
+      color: #ff6b8b;
+      margin-bottom: 15px;
+      font-family: 'Sour Gummy', cursive;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    .sidebar ul li {
+      margin: 8px 0;
+      cursor: pointer;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .sidebar ul li:hover {
+      color: #ff6b8b;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+  </style>
+  <body>
+    <div class="sidebar">
+      <h2>Genres</h2>
+      <ul>
+        <li>
+          Haikyuu
+          <ul>
+            <li onclick="selectCategory('kageyama')">Kageyama</li>
+            <li onclick="selectCategory('hinata')">Hinata</li>
+          </ul>
+        </li>
+        <li>
+          Actors
+          <ul>
+            <li onclick="selectCategory('jihoon')">Park Jihoon</li>
+            <li onclick="selectCategory('hyunwook')">Choi Hyunwook</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <h1>Jihoon & Hyunwook</h1>
+        <p>Digital Photocard Collection</p>
+      </div>
+
+      <div class="main-content">
+        <div class="polaroid-container">
+          <div class="polaroid-effect">
+            <img class="photocard fade-in" src="" alt="Photocard" />
+          </div>
+        </div>
+
+        <div class="controls">
+          <button onclick="nextPhoto()">
+            <i class="fas fa-arrow-right"></i>
+            Next Photocard
+          </button>
+          <div class="photo-counter" id="counter">Photo 1 of ?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signature">Made with ♡ by Sarah</div>
+
+    <script>
+      const allPhotos = {
+        kageyama: [
+          {
+            url: 'https://i.pinimg.com/736x/XXXX.jpg',
+            name: 'Kageyama - Haikyuu',
+          },
+        ],
+        hinata: [
+          {
+            url: 'https://i.pinimg.com/736x/YYYY.jpg',
+            name: 'Hinata - Haikyuu',
+          },
+        ],
+        jihoon: [
+          {
+            url: 'https://i.pinimg.com/736x/62/d5/4c/62d54cbc14b256f7d9bff404156dfc2f.jpg',
+            name: 'Park Jihoon - Photoshoot',
+          },
+        ],
+        hyunwook: [
+          {
+            url: 'https://i.pinimg.com/736x/38/f4/af/38f4af2a8e0c5f579bb406de52cc7348.jpg',
+            name: 'Hyunwook Casual',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/41/b3/05/41b305ea488911d5160546d80aad2240.jpg',
+            name: 'Hyunwook Blonde',
+          },
+        ],
+      };
+
+      let currentCategory = 'jihoon';
+      let currentPhoto = 0;
+      const counterElement = document.getElementById('counter');
+
+      function selectCategory(category) {
+        currentCategory = category;
+        currentPhoto = 0;
+        updatePhoto();
+      }
+
+      function nextPhoto() {
+        const photos = allPhotos[currentCategory];
+        currentPhoto = (currentPhoto + 1) % photos.length;
+        updatePhoto();
+      }
+
+      function updatePhoto() {
+        const photos = allPhotos[currentCategory];
+        const imgElement = document.querySelector('.photocard');
+        const polaroid = document.querySelector('.polaroid-effect');
+
+        if (!photos.length) return;
+
+        imgElement.style.opacity = '0';
+        setTimeout(() => {
+          imgElement.src = photos[currentPhoto].url;
+          imgElement.alt = photos[currentPhoto].name;
+
+          imgElement.classList.remove('fade-in');
+          void imgElement.offsetWidth;
+          imgElement.classList.add('fade-in');
+
+          imgElement.style.opacity = '1';
+          polaroid.style.transform = 'rotate(1deg) scale(1)';
+          counterElement.textContent = `Photo ${currentPhoto + 1} of ${photos.length}`;
+        }, 300);
+      }
+
+      // initialize
+      updatePhoto();
+    </script>
+  </body>
+</html>

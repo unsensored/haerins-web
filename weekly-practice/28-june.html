@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <!--a-->
+    <button onclick="countFromZeroToTen()">Counting</button>
+    <!--one-->
+    <button onclick="findSum()">Find the sum</button>
+    <div class="result"></div>
+  </body>
+  <script>
+    for (let i = 0; i < 10; i++) {3
+      console.log('I am Sarah');
+    }
+
+    function countFromZeroToTen() {
+      for (let i = 0; i <= 10; i++) {
+        console.log(i);
+      }
+    }
+
+    //one
+
+    function findSum() {
+      let numbers = [3, 61, 37, 17, 21, 5, 1, 4, 12, 8];
+
+      let result = document.querySelector('.result');
+      let sum = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        sum = sum + numbers[i];
+      }
+
+      result.innerHTML = `The total sum is: ${sum}`;
+    }
+  </script>
+</html>

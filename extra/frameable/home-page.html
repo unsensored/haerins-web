@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Framable Photocard Collection</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #fff5f5 0%,
+          #f8f8ff 50%,
+          #f5f5ff 100%
+        );
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        font-family: 'Fredoka', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transform: translateX(0);
+        transition: transform 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+      .sidebar.closed {
+        transform: translateX(-100%);
+      }
+
+      /* Logo */
+      .logo {
+        font-family: 'Sour Gummy', cursive;
+        font-size: 2rem;
+        color: #ff6b8b;
+        text-shadow: 2px 2px 8px rgba(255, 107, 139, 0.5);
+        margin-bottom: 5px;
+      }
+      .logo-sub {
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 20px;
+      }
+
+      /* Sidebar menu */
+      .sidebar h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #444;
+      }
+      .genre {
+        margin-bottom: 15px;
+      }
+      .genre button {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #ff6b8b;
+        font-family: 'Fredoka', sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s;
+      }
+      .genre button:hover {
+        background: rgba(255, 107, 139, 0.1);
+        border-radius: 5px;
+      }
+
+      /* Smooth sliding subgenres */
+      .subgenres {
+        max-height: 0;
+        overflow: hidden;
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          max-height 0.5s ease,
+          opacity 0.5s ease;
+        opacity: 0;
+      }
+      .subgenres.open {
+        opacity: 1;
+      }
+      .subgenres button {
+        font-size: 0.9rem;
+        padding: 8px;
+        color: #555;
+        text-align: left;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .subgenres button:hover {
+        background: rgba(255, 107, 139, 0.1);
+        border-radius: 5px;
+      }
+
+      /* Toggle button */
+      .menu-toggle {
+        position: fixed;
+        left: 270px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ff6b8b;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1100;
+        box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
+        transition: left 0.4s ease;
+      }
+      .sidebar.closed + .menu-toggle {
+        left: 10px;
+      }
+
+      /* Main content */
+      .main-content {
+        margin-left: 260px;
+        flex: 1;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: margin-left 0.4s ease;
+      }
+      .sidebar.closed ~ .main-content {
+        margin-left: 60px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        font-family: 'Sour Gummy', cursive;
+        color: #ff6b8b;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 2rem;
+        margin-bottom: 5px;
+      }
+      .header p {
+        color: #888;
+        margin-top: 0;
+      }
+
+      /* Polaroid */
+      .polaroid-container {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        perspective: 1000px;
+        display: none;
+      }
+      .polaroid-effect {
+        background: white;
+        padding: 15px 15px 60px;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transform: rotate(1deg);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .photocard {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform-style: preserve-3d;
+        transition:
+          transform 0.5s ease,
+          box-shadow 0.3s ease;
+      }
+      .polaroid-effect:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+      .polaroid-effect:hover .photocard {
+        transform: translateY(-5px) rotateY(5deg);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Controls */
+      .controls {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 40px;
+      }
+      button.next-btn {
+        border: none;
+        border-radius: 50px;
+        height: 45px;
+        width: 180px;
+        font-family: 'Sour Gummy', sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(45deg, #ff6b8b, #ff8e53);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+        margin-top: 50px;
+      }
+      button.next-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(255, 107, 139, 0.4);
+        background: linear-gradient(45deg, #ff8e53, #ff6b8b);
+      }
+      button.next-btn:active {
+        transform: translateY(1px);
+      }
+      .photo-counter {
+        font-family: 'Fredoka', sans-serif;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Fade */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .signature {
+        margin-top: 30px;
+        font-style: italic;
+        color: #aaa;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar">
+      <div class="logo">Framable</div>
+      <div class="logo-sub">by sarah</div>
+      <h2>Genres</h2>
+
+      <div class="genre">
+        <button onclick="toggleSub(this)">
+          Haikyuu <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="subgenres">
+          <button onclick="selectCategory('Kageyama','Haikyuu')">
+            Kageyama Tobio
+          </button>
+          <button onclick="selectCategory('Hinata','Haikyuu')">Hinata Shoyo</button>
+        </div>
+      </div>
+
+      <div class="genre">
+        <button onclick="toggleSub(this)">
+          Blue Lock <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="subgenres">
+          <button onclick="selectCategory('Isagi','Blue Lock')">Isagi Yoichi</button>
+          <button onclick="selectCategory('Sae','Blue Lock')">Itoshi Sae</button>
+          <button onclick="selectCategory('Rin','Blue Lock')">Itoshi Rin</button>
+        </div>
+      </div>
+
+      <div class="genre">
+        <button onclick="toggleSub(this)">
+          Kpop <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="subgenres">
+          <button onclick="selectCategory('Wonyoung','Kpop')">Wonyoung</button>
+          <button onclick="selectCategory('Jennie','Kpop')">Jennie</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="main-content">
+      <div class="header">
+        <h1 id="pageTitle">Framable</h1>
+        <p id="pageSubtitle">Select a genre to get started</p>
+      </div>
+
+      <div class="polaroid-container">
+        <div class="polaroid-effect">
+          <img class="photocard fade-in" src="" alt="" />
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="next-btn" onclick="nextPhoto()">
+          <i class="fas fa-arrow-right"></i> Next Photocard
+        </button>
+        <div class="photo-counter" id="counter"></div>
+      </div>
+
+      <div class="signature">Made with ♡ by Sarah</div>
+    </div>
+
+    <script>
+      const allPhotos = {
+        Kageyama: [
+          {
+            url: 'https://i.pinimg.com/736x/7e/cf/51/7ecf511673cded956270f2efdbcbf2de.jpg',
+            name: 'Kageyama 2',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/47/8e/d5/478ed565bb03fdd83a272eda3a056950.jpg',
+            name: 'Kageyama 3',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/41/16/b6/4116b6224c9b00a60bf7d302ac1ab1bc.jpg',
+            name: 'Kageyama 4',
+          },
+        ],
+        Hinata: [
+          {
+            url: 'https://i.pinimg.com/736x/9c/52/37/9c5237aba8f8e7968e52a85303f417dc.jpg',
+            name: 'Hinata 1',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/53/23/ee/5323ee882dc2105f0521c9f28381b8ad.jpg',
+            name: 'Hinata 2',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/c0/e2/cb/c0e2cb92d049741ea15509f7211b7e2f.jpg',
+            name: 'Hinata 3',
+          },
+        ],
+        Isagi: [
+          {
+            url: 'https://i.pinimg.com/736x/8a/c7/10/8ac7108eb1cecb158eee01fc69b0ffa3.jpg',
+            name: 'Isagi 2',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/ea/3e/cf/ea3ecf84dd3691f5ba4020872108a5c4.jpg',
+            name: 'Isagi 3',
+          },
+        ],
+        Rin: [
+          {
+            url: 'https://i.pinimg.com/736x/a2/14/37/a214374a0d542b7f6babaf40d41d5c49.jpg',
+            name: 'Rin 1',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/9f/eb/f3/9febf321b1bc08a9ed69499ce6b8e333.jpg',
+            name: 'Rin 2',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/af/63/85/af63857c2819160cf312ba9072585780.jpg',
+            name: 'Rin 3',
+          },
+        ],
+        Sae: [
+          {
+            url: 'https://i.pinimg.com/1200x/6a/8c/8c/6a8c8c958a174982acd4a9633bc8257b.jpg',
+            name: 'Sae 1',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/64/ed/8c/64ed8c0bddf6a60f79ccf4856773de48.jpg',
+            name: 'Sae 2',
+          },
+          {
+            url: 'https://i.pinimg.com/736x/27/49/bb/2749bb38eee0fe8ae7786ae848d7cac0.jpg',
+            name: 'Sae 3',
+          },
+        ],
+        Wonyoung: [
+          {
+            url: 'https://i.pinimg.com/736x/c0/28/0e/c0280eee632645aa45b4220c56b1625a.jpg',
+            name: 'Wonyoung 1',
+          },
+        ],
+        Jennie: [
+          {
+            url: 'https://i.pinimg.com/736x/62/d5/4c/62d54cbc14b256f7d9bff404156dfc2f.jpg',
+            name: 'Jennie 1',
+          },
+        ],
+      };
+
+      let currentMainGenre = '',
+        currentCategory = '',
+        currentPhoto = 0;
+
+      const counterElement = document.getElementById('counter');
+      const titleElement = document.getElementById('pageTitle');
+      const subtitleElement = document.getElementById('pageSubtitle');
+      const polaroidContainer = document.querySelector('.polaroid-container');
+      const controls = document.querySelector('.controls');
+      const imgElement = document.querySelector('.photocard');
+
+      function selectCategory(category, mainGenre) {
+        if (currentCategory === category && currentMainGenre === mainGenre)
+          return; // already selected
+        currentCategory = category;
+        currentMainGenre = mainGenre;
+        currentPhoto = 0;
+
+        polaroidContainer.style.display = 'block';
+        controls.style.display = 'flex';
+        titleElement.textContent = `${mainGenre}: ${category}`;
+        subtitleElement.textContent = 'Digital Photocard Collection';
+        updatePhoto();
+      }
+
+      function nextPhoto() {
+        currentPhoto = (currentPhoto + 1) % allPhotos[currentCategory].length;
+        updatePhoto();
+      }
+
+      function updatePhoto() {
+        const photos = allPhotos[currentCategory];
+        imgElement.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          imgElement.src = photos[currentPhoto].url;
+          imgElement.alt = photos[currentPhoto].name;
+          imgElement.classList.remove('fade-in');
+          void imgElement.offsetWidth;
+          imgElement.classList.add('fade-in');
+          imgElement.style.opacity = '1';
+          imgElement.style.transform = 'scale(1)';
+          counterElement.textContent = `Photo ${currentPhoto + 1} of ${photos.length}`;
+        }, 300);
+      }
+
+      // Sidebar toggle
+      const sidebar = document.getElementById('sidebar');
+      const menuToggle = document.getElementById('menuToggle');
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('closed');
+        menuToggle.innerHTML = sidebar.classList.contains('closed')
+          ? '<i class="fas fa-arrow-right"></i>'
+          : '<i class="fas fa-arrow-left"></i>';
+      });
+
+      // Smooth dropdown
+      function toggleSub(btn) {
+        const subMenu = btn.nextElementSibling;
+        const isOpen = subMenu.classList.contains('open');
+        if (isOpen) {
+          subMenu.style.maxHeight = '0';
+          subMenu.classList.remove('open');
+        } else {
+          subMenu.classList.add('open');
+          subMenu.style.maxHeight = subMenu.scrollHeight + 'px';
+        }
+      }
+    </script>
+  </body>
+</html>

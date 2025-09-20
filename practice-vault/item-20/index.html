@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    .container {
+      padding: 30px;
+      width: 700px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 5px 5px 5px rgb(219, 219, 219);
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    h1 {
+      font-size: x-large;
+    }
+
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #007bff;
+      background-color: #007bff;
+      color: white;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      padding: 50px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Enter Your Names</h1>
+      <input class="firstName" type="text" placeholder="First Name" />
+      <input class="lastName" type="text" placeholder="Last Name" />
+      <button onclick="makeName()">Show Full Name</button>
+      <div class="fullname"></div>
+    </div>
+    
+    <script>
+      function makeName() {
+        let firstName = document.querySelector('.firstName');
+        let lastName = document.querySelector('.lastName');
+        let fullName = document.querySelector('.fullname');
+        let message = `Full name: ${firstName.value} ${lastName.value}`;
+        fullName.innerHTML = message;
+      }
+    </script>
+  </body>
+</html>

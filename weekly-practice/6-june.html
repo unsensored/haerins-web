@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    body {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+  </style>
+  <body>
+    <!--one-->
+    <div>
+      <button onclick="popupInputValue()">Popup</button>
+      <input class="dummy-input" type="text" placeholder="Type something..." />
+    </div>
+
+    <!--two-->
+    <div>
+      <button onclick="numberChecker()">Check number</button>
+      <input class="numberInput" placeholder="Type number..." type="number" />
+    </div>
+
+    <!--three-->
+    <div>
+      <button onclick="arrayColours()">Last colour in array</button>
+    </div>
+    <!--four-->
+    <div>
+      <button onclick="favouriteStuff()">Show Favorites</button>
+      <div class="list"></div>
+    </div>
+    <!--five-->
+    <div>
+      <button onclick="numberSum()">Find sum of array</button>
+      <div class="result"></div>
+    </div>
+    <!--six-->
+    <button onclick="largestNumber()">Find largest number</button>
+    <div class="big-number"></div>
+    <script>
+      // one
+      function popupInputValue() {
+        let myInput = document.querySelector('.dummy-input');
+        let myInputValue = myInput.value;
+        alert(myInputValue);
+      }
+      // two
+      function numberChecker() {
+        let numbers = document.querySelector('.numberInput');
+        let numberValue = numbers.value;
+
+        if (numberValue < 10) {
+          alert('Number is less than 10');
+        } else if (numberValue > 10) {
+          alert('Number is greater than 10');
+        }
+      }
+      // three
+      function arrayColours() {
+        let colours = ['red', 'maroon', 'black', 'lavender'];
+        let lastColor = colours[colours.length - 1];
+
+        alert(`the last item in the array is ${lastColor}`);
+      }
+      // four
+      function favouriteStuff() {
+        let favourites = ['roblox', 'netball', 'money', 'cats'];
+        let list = document.querySelector('.list');
+        list.innerHTML = `
+          <ul>
+            <li>${favourites[0]}</li>
+            <li>${favourites[1]}</li>
+            <li>${favourites[2]}</li>
+            <li>${favourites[3]}</li>
+          </ul>
+          <div>The total number of items is: ${favourites.length}</div>`;
+      }
+      // five
+      function numberSum() {
+        let number = [18, 27, 21];
+        let result = document.querySelector('.result');
+        result.innerHTML = `The sum of the array is ${number[0] + number[1] + number[2]}`;
+      }
+
+      // six
+      let numbers = [53, 1, 101, 99, 100];
+
+      function largestNumber() {
+        let currentLargestNumber = numbers[0];
+
+        if (currentLargestNumber < numbers[1]) {
+          currentLargestNumber = numbers[1];
+        }
+        if (currentLargestNumber < numbers[2]) {
+          currentLargestNumber = numbers[2];
+        }
+        if (currentLargestNumber < numbers[3]) {
+          currentLargestNumber = numbers[3];
+        }
+        if (currentLargestNumber <   numbers[4]) {
+          currentLargestNumber = numbers[4];
+        }
+        if (currentLargestNumber < numbers[5]) {
+          currentLargestNumber = numbers[5];
+        }
+
+        alert(currentLargestNumber);
+      }
+    </script>
+  </body>
+</html>

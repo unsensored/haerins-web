@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    .options {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 75px;
+      margin-bottom: 50px;
+    }
+
+    button {
+      background-color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+
+    .changeColour {
+      color: cornflowerblue;
+      border: cornflowerblue solid 1px;
+    }
+
+    .changeColour:hover {
+      color: white;
+      border: cornflowerblue solid 1px;
+      background-color: cornflowerblue;
+    }
+
+    .changeSize {
+      color: #d9792f;
+      border: #d9792f solid 1px;
+    }
+
+    .changeSize:hover {
+      color: white;
+      border: #d9792f;
+      background-color: #d9792f;
+    }
+
+    .visibility {
+      color: crimson;
+      border: crimson solid 1px;
+    }
+
+    .visibility:hover {
+      color: white;
+      border: crimson;
+      background-color: crimson;
+    }
+
+    .box {
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ccc;
+    }
+
+    .red {
+      background-color: crimson;
+    }
+
+    .bigger {
+      width: 400px;
+      height: 400px;
+    }
+
+    .invisible {
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="options">
+        <button onclick="changeColour()" class="changeColour">
+          Change the box background to 'red'
+        </button>
+        <button onclick="changeSize()" class="changeSize">
+          Make the box bigger
+        </button>
+        <button onclick="visibility()" class="visibility">Hide the box</button>
+      </div>
+      <div class="box"></div>
+    </div>
+
+    <script>
+      function changeColour() {
+        let box = document.querySelector('.box');
+        let button = document.querySelector('.changeColour');
+
+        if (box.classList.contains('red')) {
+          box.classList.remove('red');
+          button.innerHTML = `Change the box background to 'red'`;
+        } else {
+          box.classList.add('red');
+          button.innerHTML = `Change the box background to 'default'`;
+        }
+      }
+
+      function changeSize() {
+        let box = document.querySelector('.box');
+        let button = document.querySelector('.changeSize');
+
+        if (box.classList.contains('bigger')) {
+          box.classList.remove('bigger');
+          button.innerHTML = `Make the box bigger`;
+        } else {
+          box.classList.add('bigger');
+          button.innerHTML = `Make the box smaller`;
+        }
+      }
+
+      function visibility() {
+        let box = document.querySelector('.box');
+        let button = document.querySelector('.visibility');
+
+        if (box.classList.contains('invisible')) {
+          box.classList.remove('invisible');
+          button.innerHTML = `Hide the box`;
+        } else {
+          box.classList.add('invisible');
+          button.innerHTML = `Show the box`;
+        }
+      }
+    </script>
+  </body>
+</html>

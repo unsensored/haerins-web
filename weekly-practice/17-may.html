@@ -1,89 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-   <title>HTML Template</title>
- </head>
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-  font-family: 'Sour Gummy', sans-serif;
-  font-optical-sizing: auto;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-}
+    body {
+      /* font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; */
+    }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    .container {
+    }
 
-div {
-gap: 30px;
-margin-top: 50px;
-}
+    div {
+      /* gap: 30px;
+      margin-top: 50px; */
+    }
 
-button {
-  border: 2px solid;
-  border-radius: 5px;
-  height: 50px;
-  width: 170px;
-  font-family: 'Sour Gummy', sans-serif;
-  font-optical-sizing: auto;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  background-color: white;
-        color: pink;
-}
+    button {
+      /* border: 2px solid;
+      border-radius: 5px;
+      height: 50px;
+      width: 170px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto;
+      cursor: pointer;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
+      background-color: white;
+      color: pink; */
+    }
 
-button:hover {
-        background-color: pink;
-        color: white;
+    button:hover {
+      /* background-color: pink;
+      color: white; */
+    }
+
+    input {
+      /* border: 2px solid;
+      border-radius: 5px;
+      font-family: 'Sour Gummy', sans-serif;
+      font-optical-sizing: auto; */
+    }
+
+    .default {
+      height: 300px;
+    }
+
+    .zoom-in {
+      height: 500px;
+    }
+
+    .zoom-out {
+      height: 150px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .orange {
+      background-color: orange;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid gray;
+    }
+  </style>
+  <body>
+    <div class="button1">
+      <button class="first" onclick="changeText()">Click Me!</button>
+    </div>
+    <div class="button2">
+      <input class="input2" type="text" placeholder="Type something..." />
+      <button class="second" onclick="echoText()">Echo</button>
+      <p class="paragraph2"></p>
+    </div>
+    <div class="button3">
+      <img
+        class="default"
+        src="https://i.pinimg.com/736x/58/91/92/589192197d6a4d31557e8a6852b51bba.jpg"
+      />
+    </div>
+    <div class="button4">
+      <div class="box"></div>
+      <button onclick="changeColor('red')">Red</button>
+      <button onclick="changeColor('orange')">Orange</button>
+      <button onclick="changeColor('yellow')">Yellow</button>
+      <button onclick="changeColor('green')">Green</button>
+      <button onclick="changeColor('blue')">Blue</button>
+    </div>
+    <script>
+      function changeText() {
+        let button1 = document.querySelector('.first');
+        button1.innerHTML = 'Clicked';
       }
 
+      function echoText() {
+        let input = document.querySelector('.input2');
+        let paragraph = document.querySelector('.paragraph2');
+        let text = input.value;
 
-input {
-  border: 2px solid;
-  border-radius: 5px;
-  font-family: 'Sour Gummy', sans-serif;
-  font-optical-sizing: auto;
-}
+        if (text) {
+          paragraph.innerHTML = text;
+          input.value = '';
+        }
+      }
 
- </style>
- <body>
-  <div class="button1">
-  <button class="first" onclick="changeText()">Click Me!</gbutton>
-</div>
-<div class="button2">
-  <input class="input2" type="text" placeholder="Type something..."/>
-  <button class="second" onclick="echoText()">Echo</button>
-  <p class="paragraph2"></p>
-</div>
+      function zoom() {}
 
- </body>
- <script>
-
-function changeText() {
-  let button1 = document.querySelector(".first");
-  button1.innerHTML = 'Clicked'
-}
-
-function echoText() {
-  let input = document.querySelector(".input2");
-  let paragraph = document.querySelector(".paragraph2");
-  let text = input.value;
-
-  if (text) {
-    paragraph.innerHTML = text;
-    input.value = "";
-  }
-}
-
- </script>
+      let previousColor;
+      function changeColor(color) {
+        let box = document.querySelector('.box');
+        box.classList.remove(previousColor);
+        box.classList.add(color);
+        previousColor = color;
+      }
+    </script>
+  </body>
 </html>

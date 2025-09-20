@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    .box {
+      border: black solid 1px;
+      height: 100px;
+      width: 100px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+  </style>
+  <body>
+    <!--one-->
+    <button onclick="popup()">Show popup</button>
+    <!--two-->
+    <div class="box"></div>
+    <button onclick="changeColour('red')" class="red">Red</button>
+    <button onclick="changeColour('green')" class="green">Green</button>
+    <button onclick="changeColour('yellow')" class="yellow">Yellow</button>
+    <!--three-->
+    <div>
+      <input class="inputha" type="number" min="0" max="10" />
+      <button class="result" onclick="checkGrade()">Check result</button>
+      <div class="gradeDiv" onclick="checkGrade()">Grade Result</div>
+    </div>
+    <!--four-->
+    <div>
+      <button class="button" onclick="uglyArray()">Print numbers</button>
+    </div>
+  </body>
+  <script>
+    //one
+    function popup(message) {
+      alert('Hello World');
+    }
+    //two
+    let previousColour;
+
+    function changeColour(colour) {
+      let box = document.querySelector('.box');
+      box.classList.add(colour);
+      box.classList.remove(previousColour);
+      previousColour = colour;
+    }
+    //three
+    function checkGrade() {
+      let result;
+      let result1 = document.querySelector('.gradeDiv');
+      let input = document.querySelector('.inputha');
+      let inputValue = Number(input.value);
+      if (inputValue === 10) {
+        result = `Fantastic!`;
+      } else if (inputValue <= 9 && inputValue >= 7) {
+        result = `Great Job`;
+      } else if (inputValue <= 6 && inputValue >= 4) {
+        result = `Nice Try`;
+      } else if (inputValue <= 3 && inputValue >= 1) {
+        result = `Bad`;
+      } else if (inputValue === 0) {
+        result = `I give up`;
+      }
+      result1.innerHTML = result;
+    }
+    //four
+
+      let number = [132, 234, 654, 768, 132, 234, 134, 45, 230, 345];
+      function uglyArray() {
+        for (let i = 0; i < number.length; i++) {
+          console.log(`Number ${i + 1} is ${number[i]}`);
+        }
+      }
+  </script>
+</html>

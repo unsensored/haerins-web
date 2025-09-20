@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      gap: 10px;
+    }
+
+    button {
+      border: solid 1px #007bff;
+      background-color: #007bff;
+      font-size: 16px;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    input {
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      border: solid 1px black;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input class="input" type="text" />
+      <button onclick="changeInput()">
+        Click me to change the input value
+      </button>
+    </div>
+
+    <script>
+      function changeInput() {
+        let message = 'A button is clicked';
+        let myInput = document.querySelector('.input');
+        myInput.value = message;
+      }
+    </script>
+  </body>
+</html>

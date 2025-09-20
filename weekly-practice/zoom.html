@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        #zoomImage {
+            display: block;
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #zoomOut {
+            background-color: #f44336;
+        }
+        
+        #zoomOut:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Zoom Demo</h1>
+    
+    <div class="image-container">
+        <img id="zoomImage" src="https://picsum.photos/500/300" alt="Sample Image">
+    </div>
+    
+    <div class="buttons">
+        <button id="zoomIn">Zoom In</button>
+        <button id="zoomOut">Zoom Out</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const image = document.getElementById('zoomImage');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+            
+            let scale = 1;
+            const scaleStep = 0.1;
+            const maxScale = 3;
+            const minScale = 0.5;
+            
+            function updateImageScale() {
+                image.style.transform = `scale(${scale})`;
+            }
+            
+            zoomInBtn.addEventListener('click', function() {
+                if (scale < maxScale) {
+                    scale += scaleStep;
+                    updateImageScale();
+                }
+            });
+            
+            zoomOutBtn.addEventListener('click', function() {
+                if (scale > minScale) {
+                    scale -= scaleStep;
+                    updateImageScale();
+                }
+            });
+            
+            // Initialize
+            updateImageScale();
+        });
+    </script>
+</body>
+</html>

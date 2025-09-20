@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      margin: 100px;
+    }
+
+    .container {
+      width: 416px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+    }
+
+    input {
+      width: 409px;
+      height: 60px;
+      border-color: #dbdce0;
+      border-radius: 5px;
+      text-align: right;
+    }
+
+    .row {
+      gap: 5px;
+      display: flex;
+    }
+
+    button {
+      width: 100px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      background-color: #dbdce0;
+      color: #4d4e52;
+      font-size: 20px;
+    }
+
+    .delete-button {
+      background-color: #f44242;
+      color: #fff;
+    }
+
+    .result-button {
+      background-color: #4286f4;
+      color: #fff;
+    }
+
+    .expression {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+
+    .history-button {
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 7px;
+      top: 7px;
+    }
+
+    .history-button:hover {
+      background-color: #dbdce0;
+    }
+
+    .history-img {
+      width: 20px;
+    }
+
+    .list {
+      width: 200px;
+      list-style: none;
+      border: #dbdce0 solid 2px;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: white;
+      position: absolute;
+      top: 23px;
+      left: 7px;
+      display: none;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    .history li {
+      padding: 10px;
+    }
+
+    .history li:hover {
+      background-color: lightgray;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input class="input" type="text" />
+      <div class="expression"></div>
+      <div class="history">
+        <button class="history-button" onclick="showHistory()">
+          <img
+            class="history-img"
+            src="https://upload.wikimedia.org/wikipedia/commons/2/27/OOjs_UI_icon_history.svg"
+          />
+        </button>
+        <ul class="list">
+          <li>lil uzi vert</li>
+          <li>is so peak</li>
+        </ul>
+      </div>
+      <div class="row">
+        <button onclick="onCalculatorButtonClick(`(`)">(</button
+        ><button onclick="onCalculatorButtonClick(`)`)">)</button
+        ><button
+          class="delete-button"
+          onclick="onCalculatorButtonClick('delete')"
+        >
+          DEL</button
+        ><button onclick="onCalculatorButtonClick(`ac`)">AC</button>
+      </div>
+      <div class="row">
+        <button onclick="onCalculatorButtonClick(7)">7</button
+        ><button onclick="onCalculatorButtonClick(8)">8</button
+        ><button onclick="onCalculatorButtonClick(9)">9</button
+        ><button onclick="onCalculatorButtonClick(`/`)">÷</button>
+      </div>
+      <div class="row">
+        <button onclick="onCalculatorButtonClick(4)">4</button
+        ><button onclick="onCalculatorButtonClick(5)">5</button
+        ><button onclick="onCalculatorButtonClick(6)">6</button
+        ><button onclick="onCalculatorButtonClick(`*`)">×</button>
+      </div>
+      <div class="row">
+        <button onclick="onCalculatorButtonClick(1)">1</button
+        ><button onclick="onCalculatorButtonClick(2)">2</button
+        ><button onclick="onCalculatorButtonClick(3)">3</button
+        ><button onclick="onCalculatorButtonClick(`-`)">-</button>
+      </div>
+      <div class="row">
+        <button onclick="onCalculatorButtonClick(0)">0</button
+        ><button onclick="onCalculatorButtonClick(`.`)">.</button
+        ><button onclick="onCalculatorButtonClick(`=`)" class="result-button">
+          =</button
+        ><button onclick="onCalculatorButtonClick(`+`)">+</button>
+      </div>
+    </div>
+
+    <script>
+      function onCalculatorButtonClick(action) {
+        console.log(action);
+        let input = document.querySelector('.input');
+        let expression = document.querySelector('.expression');
+
+        if (action === 'ac') {
+          input.value = '';
+        } else if (action === '=') {
+          expression.innerHTML = input.value;
+          input.value = eval(input.value);
+        } else if (action === 'delete') {
+          input.value = input.value.slice(0, -1);
+        } else {
+          input.value = input.value + action;
+        }
+      }
+
+      function showHistory() {
+        let list = document.querySelector('.list');
+        list.classList.toggle('visible');
+      }
+
+      function logHistory(action) {}
+    </script>
+  </body>
+</html>

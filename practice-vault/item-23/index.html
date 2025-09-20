@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">List of Names</div>
+      <button onclick="printNames()" class="printButton">Print Names</button>
+      <ul class="nameList"></ul>
+    </div>
+
+    <script>
+      let names = ['hinata', 'kageyama', 'isagi', 'sae', 'rin'];
+      function printNames() {
+        let nameList = document.querySelector('.nameList');
+        let listNames = '';
+        for (let i = 0; i < names.length; i++) {
+          listNames = listNames + `<li>${names[i]}</li>`;
+        }
+
+        nameList.innerHTML = listNames;
+      }
+    </script>
+  </body>
+</html>

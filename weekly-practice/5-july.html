@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+
+  <style>
+    .box {
+      border: 1px solid black;
+      width: 100px;
+      height: 100px;
+    }
+
+    .red {
+      background-color: salmon;
+    }
+
+    .orange {
+      background-color: coral;
+    }
+
+    .yellow {
+      background-color: #ffff8f;
+    }
+
+    .green {
+      background-color: rgb(164, 192, 117);
+    }
+
+    .blue {
+      background-color: cornflowerblue;
+    }
+  </style>
+
+  <body>
+    <!--one-->
+    <div>
+      <button class="one" onclick="textChanger()">Click Me</button>
+    </div>
+    <!--two-->
+    <div>
+      <input class="input2" type="text" />
+      <button onclick="echoText()">Echo</button>
+      <p class="paragraph"></p>
+    </div>
+    <!--three-->
+    <div></div>
+    <!--four-->
+    <div>
+      <div class="box"></div>
+      <button class="red" onclick="changeColour('red')">Red</button>
+      <button class="orange" onclick="changeColour('orange')">Orange</button>
+      <button class="yellow" onclick="changeColour('yellow')">Yellow</button>
+      <button class="green" onclick="changeColour('green')">Green</button>
+      <button class="blue" onclick="changeColour('blue')">Blue</button>
+    </div>
+    <!--five-->
+    <button>Find largest number</button>
+  </body>
+  <script>
+    // one
+    function textChanger() {
+      let button = document.querySelector('.one');
+      button.innerHTML = 'Clicked';
+    }
+
+    // two
+    function echoText() {
+      let input = document.querySelector('.input2');
+      let inputValue = input.value;
+      let paragraph = document.querySelector('.paragraph');
+      paragraph.innerHTML = inputValue;
+    }
+
+    // three
+
+    // four
+    let previousColour;
+
+    function changeColour(colour) {
+      let box = document.querySelector('.box');
+      box.classList.add(colour);
+      box.classList.remove(previousColour);
+      previousColour = colour;
+    }
+
+    //five
+    function getLargestNumber() {
+      let numbers = [54, 654, 645, 784456411, 5464655982, 545454];
+      let currentLargestNumber = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        let cuurentNumber = numbers[i];
+        if (currentLargestNumber < cuurentNumber) {
+          currentLargestNumber = cuurentNumber;
+        }
+      }
+      alert(currentLargestNumber);
+    }
+  </script>
+</html>

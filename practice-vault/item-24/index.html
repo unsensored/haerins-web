@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>List of Numbers</h1>
+      <div class="options">
+        <input class="numbers" type="number" placeholder="number" />
+        <button onclick="printNumbers()" class="printNumbers">Print</button>
+      </div>
+      <ul class="list"></ul>
+    </div>
+
+    <script>
+      function printNumbers() {
+        let button = document.querySelector('.printNumbers');
+        let input = document.querySelector('.numbers');
+        let list = document.querySelector('.list');
+        let number = input.value;
+        let listNumbers = '';
+
+        for (let i = 0; i < number.length; i++) {
+          listNumbers = listNumbers + `<ul>`;
+        }
+      }
+    </script>
+  </body>
+</html>
