@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aloe Vera Care App</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f8f5;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .app-container {
+        width: 360px;
+        height: 640px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        background: white;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .screen {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        height: 100%;
+      }
+
+      .screen.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #2f6d4f;
+      }
+
+      p,
+      li {
+        font-size: 16px;
+        margin: 6px 0;
+      }
+
+      img {
+        width: 200px;
+        border-radius: 10px;
+        margin: 10px 0;
+      }
+
+      button {
+        background: #2f6d4f;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 16px;
+        margin: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background: #3c8d65;
+      }
+
+      .nav {
+        margin-top: 50px;
+      }
+
+      /* Interactive finger poke */
+      .soil-area {
+        width: 220px;
+        height: 120px;
+        background: #8b5a2b;
+        border-radius: 10px;
+        position: absolute;
+        top: 220px;
+        margin: 20px 0;
+      }
+
+      .finger {
+        width: 150px;
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 120px;
+        left: 110px;
+        cursor: pointer;
+        transition: top 0.5s;
+      }
+
+      .finger.down {
+        top: 140px;
+      }
+
+      .result {
+        font-weight: bold;
+        color: #2f6d4f;
+        margin-top: 10px;
+        min-height: 20px;
+      }
+
+      .aloeImg {
+        width: 500px;
+      }
+
+      .aloeImg2 {
+        width: 300px;
+      }
+
+      .nav2 {
+        margin-top: 380px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Home Screen -->
+      <div class="screen active" id="home">
+        <h1>🌵 Aloe Vera Care</h1>
+        <p>Learn how to keep your <b>Aloe Vera</b> happy and healthy!</p>
+        <img
+          class="aloeImg"
+          src="https://www.mskcc.org/sites/default/files/styles/large/public/node/3169/images/Aloe-Vera_3x2.jpg"
+          alt="Aloe Vera Plant"
+        />
+        <button onclick="showScreen('about')">Get Started</button>
+      </div>
+
+      <!-- About Screen -->
+      <div class="screen" id="about">
+        <h1>About Aloe Vera</h1>
+        <p>
+          Aloe vera is a hardy succulent known for its healing gel and low
+          maintenance needs.
+        </p>
+        <ul>
+          <li>Medicinal uses (skin soothing)</li>
+          <li>Drought-tolerant</li>
+          <li>Perfect for sunny windowsills</li>
+        </ul>
+        <img
+          class="aloeImg2"
+          src="https://www.health.com/thmb/IC1uf9gexJUAjtZuI9OkikPEa9Q=/6000x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1348473975-f9ac7d89066f41ff9e5bef3a752ff205.jpg"
+          alt=""
+        />
+        <div class="nav">
+          <button onclick="showScreen('home')">Home</button>
+          <button onclick="showScreen('watering')">Next ➡️</button>
+        </div>
+      </div>
+
+      <!-- Watering Screen with Game -->
+      <div class="screen" id="watering">
+        <h1>Check if it needs Water 💧</h1>
+        <p>Poke your finger into the soil to test!</p>
+        <img
+          src="https://png.pngtree.com/png-vector/20240212/ourmid/pngtree-childs-hand-with-index-finger-pointing-person-concepts-over-png-image_11660002.png"
+          class="finger"
+          id="finger"
+          alt="Finger"
+        />
+        <div class="soil-area"></div>
+        <div class="nav2">
+          <div class="result" id="result"></div>
+          <div class="nav">
+            <button onclick="showScreen('about')">⬅️ Back</button>
+            <button onclick="showScreen('sunlight')">Next ➡️</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunlight & Soil Screen -->
+      <div class="screen" id="sunlight">
+        <h1>Sunlight ☀️ & Soil 🌱</h1>
+        <ul>
+          <li>Needs bright, direct sunlight</li>
+          <li>Thrives on windowsills or outdoors</li>
+          <li>Use sandy, well-draining soil (cactus mix)</li>
+        </ul>
+        <div class="nav">
+          <button onclick="showScreen('watering')">⬅️ Back</button>
+          <button onclick="showScreen('extra')">Next ➡️</button>
+        </div>
+      </div>
+
+      <!-- Extra Care / Sustainability Screen -->
+      <div class="screen" id="extra">
+        <h1>Extra Care 🌍</h1>
+        <ul>
+          <li>Repot every 2–3 years</li>
+          <li>Remove dead or drooping leaves</li>
+          <li>
+            <b>Sustainability tip:</b> Save aloe gel for natural skin care
+            instead of buying plastic-packaged products!
+          </li>
+        </ul>
+        <div class="nav">
+          <button onclick="showScreen('sunlight')">⬅️ Back</button>
+          <button onclick="showScreen('home')">Home 🏠</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showScreen(id) {
+        let screens = document.querySelectorAll('.screen');
+        screens.forEach((screen) => screen.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+
+      // Finger poke interaction
+      const finger = document.getElementById('finger');
+      const result = document.getElementById('result');
+
+      finger.addEventListener('click', () => {
+        finger.classList.add('down');
+        setTimeout(() => {
+          finger.classList.remove('down');
+          // Random soil condition
+          let soilMoisture = Math.random() > 0.5 ? 'moist' : 'dry';
+          if (soilMoisture === 'moist') {
+            result.textContent =
+              '✅ Soil feels moist — no need to water Aloe Vera yet!';
+          } else {
+            result.textContent =
+              '💧 Soil feels dry — time to water your Aloe Vera!';
+          }
+        }, 600);
+      });
+    </script>
+  </body>
+</html>
