@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <div class="container">
+      <!--print numbers-->
+      <button onclick="printNumbers()">Print from 0 to 1000</button>
+      <ul class="list"></ul>
+      <!--array element search-->
+      <input class="input" type="text" />
+      <button class="searchButton" onclick="arraySearchElement()">
+        search
+      </button>
+    </div>
+
+    <script>
+      // print numbers
+      function printNumbers() {
+        let list = document.querySelector('.list');
+        let content = '';
+
+        for (let i = 0; i <= 1000; i++) {
+          console.log(i);
+          content = content + `<li>${i}<li>`;
+        }
+
+        console.log(content);
+        list.innerHTML = content;
+      }
+
+      // array element search
+      function arraySearchElement() {
+        let items = ['apple', 'banana', 'orange', 'pear'];
+        let input = document.querySelector('.input');
+        let inputValue = input.value;
+        let hasItemFound = false;
+
+        for (let i = 0; i < items.length; i++) {
+          let currentItem = items[i];
+
+          if (currentItem === inputValue) {
+            hasItemFound = true;
+          }
+        }
+        if (hasItemFound) {
+          alert('Item Found');
+        } else {
+          alert('Item Not Found');
+        }
+      }
+    </script>
+  </body>
+</html>
