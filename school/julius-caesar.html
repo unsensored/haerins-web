@@ -1,959 +1,1110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Julius Caesar: A Historical Study</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #8B0000;
-            --secondary: #D4AF37;
-            --dark: #2C2C2C;
-            --light: #F5F5F5;
-            --accent: #B8860B;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-        }
-        
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary);
-            color: var(--dark);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        nav {
-            background-color: var(--dark);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px 0;
-        }
-        
-        nav li {
-            margin: 0 20px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: var(--primary);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+        --primary: #8b0000;
+        --secondary: #d4af37;
+        --dark: #2c2c2c;
+        --light: #f5f5f5;
+        --accent: #b8860b;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url('https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+        position: relative;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      header p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--secondary);
+        color: var(--dark);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      nav {
+        background-color: var(--dark);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 15px 0;
+      }
+
+      nav li {
+        margin: 0 20px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background-color: var(--primary);
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .section-title h2:after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .content-text {
+        font-size: 1.1rem;
+      }
+
+      .content-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .content-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .content-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 50px auto;
+      }
+
+      .timeline:before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background-color: var(--secondary);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-content h3 {
+        margin-top: 0;
+        color: var(--primary);
+      }
+
+      .timeline-item:nth-child(odd):before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--primary);
+        border: 4px solid var(--secondary);
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(even):before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: -10px;
+        background-color: var(--primary);
+        border: 4px solid var(--secondary);
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      /* Interactive Map Styles */
+      .map-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+      }
+
+      .map-wrapper {
+        position: relative;
+        height: 500px;
+        background: #e8eaf0;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      .map-base {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #a8c8e0, #7aa6c9);
+        position: relative;
+      }
+
+      .region {
+        position: absolute;
+        border: 2px solid rgba(139, 0, 0, 0.7);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+        background-color: rgba(139, 0, 0, 0.6);
+      }
+
+      .region:hover {
+        background-color: rgba(139, 0, 0, 0.8);
+        transform: scale(1.05);
+        z-index: 10;
+      }
+
+      .region.active {
+        background-color: rgba(212, 175, 55, 0.8);
+        border-color: #d4af37;
+        z-index: 10;
+      }
+
+      .map-info {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+        border-left: 4px solid var(--primary);
+      }
+
+      .map-info h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      .map-info p {
+        margin-bottom: 10px;
+      }
+
+      .map-info .date {
+        font-style: italic;
+        color: #666;
+      }
+
+      .map-controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .map-btn {
+        padding: 8px 15px;
+        background-color: var(--dark);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .map-btn:hover {
+        background-color: var(--primary);
+      }
+
+      .map-btn.active {
+        background-color: var(--primary);
+      }
+
+      .reforms-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .reform-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        border-top: 4px solid var(--secondary);
+      }
+
+      .reform-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .reform-card h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .legacy-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      .legacy-item {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .legacy-icon {
+        font-size: 3rem;
+        color: var(--secondary);
+        margin-bottom: 15px;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .section-counter {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+      }
+
+      @media (max-width: 768px) {
         .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+          grid-template-columns: 1fr;
         }
-        
-        .content-text {
-            font-size: 1.1rem;
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
         }
-        
-        .content-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+
+        nav li {
+          margin: 5px 0;
         }
-        
-        .content-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .content-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .content-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 50px auto;
-        }
-        
+
         .timeline:before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
+          left: 31px;
         }
-        
+
         .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
         }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
+
         .timeline-item:nth-child(even) {
-            left: 50%;
+          left: 0;
         }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .timeline-content h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-        
-        .timeline-item:nth-child(odd):before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--primary);
-            border: 4px solid var(--secondary);
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
+
+        .timeline-item:nth-child(odd):before,
         .timeline-item:nth-child(even):before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: -10px;
-            background-color: var(--primary);
-            border: 4px solid var(--secondary);
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
+          left: 21px;
         }
-        
-        /* Interactive Map Styles */
-        .map-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-top: 30px;
+
+        header h1 {
+          font-size: 2.5rem;
         }
-        
+
         .map-wrapper {
-            position: relative;
-            height: 500px;
-            background: #e8eaf0;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 20px;
+          height: 400px;
         }
-        
-        .map-base {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #a8c8e0, #7aa6c9);
-            position: relative;
-        }
-        
-        .region {
-            position: absolute;
-            border: 2px solid rgba(139, 0, 0, 0.7);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            text-align: center;
-            padding: 5px;
-            box-sizing: border-box;
-            background-color: rgba(139, 0, 0, 0.6);
-        }
-        
-        .region:hover {
-            background-color: rgba(139, 0, 0, 0.8);
-            transform: scale(1.05);
-            z-index: 10;
-        }
-        
-        .region.active {
-            background-color: rgba(212, 175, 55, 0.8);
-            border-color: #D4AF37;
-            z-index: 10;
-        }
-        
-        .map-info {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .map-info h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .map-info p {
-            margin-bottom: 10px;
-        }
-        
-        .map-info .date {
-            font-style: italic;
-            color: #666;
-        }
-        
-        .map-controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .map-btn {
-            padding: 8px 15px;
-            background-color: var(--dark);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .map-btn:hover {
-            background-color: var(--primary);
-        }
-        
-        .map-btn.active {
-            background-color: var(--primary);
-        }
-        
-        .reforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .reform-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border-top: 4px solid var(--secondary);
-        }
-        
-        .reform-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .reform-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .legacy-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .legacy-item {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .legacy-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .section-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 99;
-        }
-        
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 5px 0;
-            }
-            
-            .timeline:before {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd):before, 
-            .timeline-item:nth-child(even):before {
-                left: 21px;
-            }
-            
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .map-wrapper {
-                height: 400px;
-            }
-        }
+      }
+
+      .bibliography {
+        text-align: left;
+        margin-left: 300px;
+        margin-bottom: 30px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header id="home">
-        <div class="container">
-            <h1>Julius Caesar: A Historical Study</h1>
-            <p>Explore the life, military campaigns, political reforms, and lasting legacy of one of history's most influential figures</p>
-            <a href="#personal-life" class="btn">Begin Exploration</a>
-        </div>
+      <div class="container">
+        <h1>Julius Caesar: A Historical Study</h1>
+        <p>
+          Explore the life, military campaigns, political reforms, and lasting
+          legacy of one of history's most influential figures
+        </p>
+        <a href="#personal-life" class="btn">Begin Exploration</a>
+      </div>
     </header>
-    
+
     <nav>
-        <ul>
-            <li><a href="#personal-life" class="nav-link active">Early Life</a></li>
-            <li><a href="#military" class="nav-link">Military Campaigns</a></li>
-            <li><a href="#reforms" class="nav-link">Political Reforms</a></li>
-            <li><a href="#legacy" class="nav-link">Death & Legacy</a></li>
-        </ul>
+      <ul>
+        <li><a href="#personal-life" class="nav-link active">Early Life</a></li>
+        <li><a href="#military" class="nav-link">Military Campaigns</a></li>
+        <li><a href="#reforms" class="nav-link">Political Reforms</a></li>
+        <li><a href="#legacy" class="nav-link">Death & Legacy</a></li>
+      </ul>
     </nav>
-    
+
     <section id="personal-life">
-        <div class="container">
-            <div class="section-title">
-                <h2>Personal Life and Early Career</h2>
-            </div>
-            
-            <div class="content-grid">
-                <div class="content-text">
-                    <h3>Who Was Caesar?</h3>
-                    <p>Gaius Julius Caesar was born in July 100 BCE into the prestigious Julian clan, which claimed descent from the goddess Venus. Despite being patricians, his family had limited political influence during his early years.</p>
-                    <p>Caesar received an excellent education, studying rhetoric, philosophy, and law. His tutor was the renowned Marcus Antonius Gnipho, who instilled in him a love for literature and oratory.</p>
-                    <p>At age 16, Caesar became head of his family after his father's death. He soon aligned himself with popular leaders opposing the conservative Senate, beginning his political career as a priest of Jupiter.</p>
-                    <p>His early political positions included military tribune, quaestor, and aedile. As aedile, he gained popularity by organizing lavish public games, though this left him deeply in debt.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://i.etsystatic.com/18641759/r/il/30fdc7/6085309009/il_fullxfull.6085309009_mz3y.jpg" alt="Ancient Roman bust">
-                </div>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>100 BCE</h3>
-                        <p>Born into the Julian clan in Rome</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>85 BCE</h3>
-                        <p>Became head of family after father's death</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>82 BCE</h3>
-                        <p>Fled Rome during Sulla's proscriptions</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>75 BCE</h3>
-                        <p>Studied rhetoric in Rhodes, captured by pirates</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>69 BCE</h3>
-                        <p>Served as quaestor in Hispania</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>65 BCE</h3>
-                        <p>Elected curule aedile, organized lavish games</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Personal Life and Early Career</h2>
         </div>
-    </section>
-    
-    <section id="military" style="background-color: #f9f9f9;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Military Strategy and Conquests</h2>
-            </div>
-            
-            <div class="content-grid">
-                <div class="content-image">
-                    <img src="https://eaglesanddragonspublishing.com/wp-content/uploads/2020/11/Roman-War.png" alt="Roman military illustration">
-                </div>
-                <div class="content-text">
-                    <h3>How Did He Gain Power Through War?</h3>
-                    <p>Caesar's military career began in Asia, where he earned the Civic Crown for saving a comrade's life. His true military genius emerged during his Gallic campaigns (58-50 BCE), where he conquered all of Gaul.</p>
-                    <p>His military strategies combined speed, surprise, and psychological warfare. He famously built a bridge across the Rhine in just 10 days to intimidate Germanic tribes.</p>
-                    <p>During the Civil War against Pompey, Caesar demonstrated his tactical brilliance at the Battle of Pharsalus (48 BCE), where his outnumbered forces defeated Pompey's larger army through superior positioning and morale.</p>
-                    <p>Caesar's military successes provided him with immense wealth, loyal veterans, and the political capital needed to challenge the Roman Senate's authority.</p>
-                </div>
-            </div>
-            
-            <div class="map-container">
-                <h3>Caesar's Military Campaigns</h3>
-                <div class="map-controls">
-                    <button class="map-btn active" data-campaign="gaul">Gallic Wars</button>
-                    <button class="map-btn" data-campaign="civil">Civil War</button>
-                    <button class="map-btn" data-campaign="all">All Campaigns</button>
-                </div>
-                <div class="map-wrapper">
-                    <div class="map-base" id="campaign-map">
-                        <!-- Regions will be added by JavaScript -->
-                    </div>
-                </div>
-                <div class="map-info">
-                    <h3 id="map-title">Select a region on the map</h3>
-                    <p id="map-description">Click on any highlighted region to learn about Caesar's military campaigns in that area.</p>
-                    <p class="date" id="map-date"></p>
-                </div>
-            </div>
+
+        <div class="content-grid">
+          <div class="content-text">
+            <h3>Who Was Caesar?</h3>
+            <p>
+              Gaius Julius Caesar was born in July 100 BCE into the prestigious
+              Julian clan, which claimed descent from the goddess Venus. Despite
+              being patricians, his family had limited political influence
+              during his early years.
+            </p>
+            <p>
+              Caesar received an excellent education, studying rhetoric,
+              philosophy, and law. His tutor was the renowned Marcus Antonius
+              Gnipho, who instilled in him a love for literature and oratory.
+            </p>
+            <p>
+              At age 16, Caesar became head of his family after his father's
+              death. He soon aligned himself with popular leaders opposing the
+              conservative Senate, beginning his political career as a priest of
+              Jupiter.
+            </p>
+            <p>
+              His early political positions included military tribune, quaestor,
+              and aedile. As aedile, he gained popularity by organising lavish
+              public games, though this left him deeply in debt.
+            </p>
+          </div>
+          <div class="content-image">
+            <img
+              src="https://i.etsystatic.com/18641759/r/il/30fdc7/6085309009/il_fullxfull.6085309009_mz3y.jpg"
+              alt="Ancient Roman bust"
+            />
+          </div>
         </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>100 BCE</h3>
+              <p>Born into the Julian clan in Rome</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>85 BCE</h3>
+              <p>Became head of family after father's death</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>82 BCE</h3>
+              <p>Fled Rome during Sulla's proscriptions</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>75 BCE</h3>
+              <p>Studied rhetoric in Rhodes, captured by pirates</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>69 BCE</h3>
+              <p>Served as quaestor in Hispania</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>65 BCE</h3>
+              <p>Elected curule aedile, organised lavish games</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
+    <section id="military" style="background-color: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Military Strategy and Conquests</h2>
+        </div>
+
+        <div class="content-grid">
+          <div class="content-image">
+            <img
+              src="https://eaglesanddragonspublishing.com/wp-content/uploads/2020/11/Roman-War.png"
+              alt="Roman military illustration"
+            />
+          </div>
+          <div class="content-text">
+            <h3>How Did He Gain Power Through War?</h3>
+            <p>
+              Caesar's military career began in Asia, where he earned the Civic
+              Crown for saving a comrade's life. His true military genius
+              emerged during his Gallic campaigns (58-50 BCE), where he
+              conquered all of Gaul.
+            </p>
+            <p>
+              His military strategies combined speed, surprise, and
+              psychological warfare. He famously built a bridge across the Rhine
+              in just 10 days to intimidate Germanic tribes.
+            </p>
+            <p>
+              During the Civil War against Pompey, Caesar demonstrated his
+              tactical brilliance at the Battle of Pharsalus (48 BCE), where his
+              outnumbered forces defeated Pompey's larger army through superior
+              positioning and morale.
+            </p>
+            <p>
+              Caesar's military successes provided him with immense wealth,
+              loyal veterans, and the political capital needed to challenge the
+              Roman Senate's authority.
+            </p>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <h3>Caesar's Military Campaigns</h3>
+          <div class="map-controls">
+            <button class="map-btn active" data-campaign="gaul">
+              Gallic Wars
+            </button>
+            <button class="map-btn" data-campaign="civil">Civil War</button>
+            <button class="map-btn" data-campaign="all">All Campaigns</button>
+          </div>
+          <div class="map-wrapper">
+            <div class="map-base" id="campaign-map">
+              <!-- Regions will be added by JavaScript -->
+            </div>
+          </div>
+          <div class="map-info">
+            <h3 id="map-title">Select a region on the map</h3>
+            <p id="map-description">
+              Click on any highlighted region to learn about Caesar's military
+              campaigns in that area.
+            </p>
+            <p class="date" id="map-date"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="reforms">
-        <div class="container">
-            <div class="section-title">
-                <h2>Political Reforms and Leadership</h2>
-            </div>
-            
-            <div class="content-grid">
-                <div class="content-text">
-                    <h3>How Did Caesar Change Rome?</h3>
-                    <p>As dictator, Caesar implemented sweeping reforms that transformed Roman society and governance. He reformed the calendar, creating the Julian calendar with 365 days and a leap year.</p>
-                    <p>He granted citizenship to residents of Roman provinces beyond Italy, expanded the Senate to 900 members, and implemented land reforms to provide for his veterans and the urban poor.</p>
-                    <p>Caesar centralized power while maintaining republican institutions in form. He held multiple titles simultaneously - dictator, consul, pontifex maximus - accumulating unprecedented authority.</p>
-                    <p>His building projects provided employment and beautified Rome, while his policies aimed to address long-standing social and economic issues that had plagued the Republic.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://cdn.sanity.io/images/cxgd3urn/production/9bb092f07748915a7ea6685dc029d7f778ed82c2-1608x911.jpg?w=1200&h=680&q=85&fit=crop&auto=format" alt="Roman Forum">
-                </div>
-            </div>
-            
-            <div class="reforms-grid">
-                <div class="reform-card">
-                    <h3>Calendar Reform</h3>
-                    <p>Introduced the Julian calendar with 365 days and leap years, basis for modern calendar</p>
-                </div>
-                <div class="reform-card">
-                    <h3>Citizenship Expansion</h3>
-                    <p>Granted Roman citizenship to provinces beyond Italy, expanding rights and integration</p>
-                </div>
-                <div class="reform-card">
-                    <h3>Senate Expansion</h3>
-                    <p>Increased Senate membership to 900, including provincials and military officers</p>
-                </div>
-                <div class="reform-card">
-                    <h3>Urban Development</h3>
-                    <p>Initiated massive building projects including a new Forum and public works</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Political Reforms and Leadership</h2>
         </div>
-    </section>
-    
-    <section id="legacy" style="background-color: #f9f9f9;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Death and Legacy</h2>
-            </div>
-            
-            <div class="content-grid">
-                <div class="content-image">
-                    <img src="https://imageio.forbes.com/specials-images/imageserve/66ac54d59683b78bb9fa051a/-Much-Ado-About-Nothing--by-William-Shakespeare/960x0.jpg?height=446&width=711&fit=bounds" alt="Shakespeare play">
-                </div>
-                <div class="content-text">
-                    <h3>How Is Caesar Remembered?</h3>
-                    <p>Caesar was assassinated on the Ides of March (March 15), 44 BCE by a group of senators led by Brutus and Cassius. They believed they were saving the Republic from tyranny.</p>
-                    <p>His death sparked another civil war, ultimately leading to the end of the Republic and beginning of the Roman Empire under his adopted heir, Augustus.</p>
-                    <p>Caesar's legacy includes the Julian calendar, the title "Caesar" becoming synonymous with ruler (Kaiser, Tsar), and his writings which remain important historical sources.</p>
-                    <p>William Shakespeare's play "Julius Caesar" immortalized his story, focusing on themes of power, betrayal, and political morality that continue to resonate today.</p>
-                </div>
-            </div>
-            
-            <div class="legacy-items">
-                <div class="legacy-item">
-                    <div class="legacy-icon">
-                        <i class="fas fa-theater-masks"></i>
-                    </div>
-                    <h3>Shakespeare's Play</h3>
-                    <p>Immortalized Caesar in literature with timeless themes of power and betrayal</p>
-                </div>
-                <div class="legacy-item">
-                    <div class="legacy-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Julian Calendar</h3>
-                    <p>Revolutionized timekeeping, basis for Gregorian calendar used today</p>
-                </div>
-                <div class="legacy-item">
-                    <div class="legacy-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Imperial Title</h3>
-                    <p>"Caesar" became title for Roman emperors, influencing terms like Kaiser and Tsar</p>
-                </div>
-                <div class="legacy-item">
-                    <div class="legacy-icon">
-                        <i class="fas fa-monument"></i>
-                    </div>
-                    <h3>Cultural Symbol</h3>
-                    <p>Enduring symbol of ambition, power, and the transition from republic to empire</p>
-                </div>
-            </div>
+
+        <div class="content-grid">
+          <div class="content-text">
+            <h3>How Did Caesar Change Rome?</h3>
+            <p>
+              As dictator, Caesar implemented sweeping reforms that transformed
+              Roman society and governance. He reformed the calendar, creating
+              the Julian calendar with 365 days and a leap year.
+            </p>
+            <p>
+              He granted citizenship to residents of Roman provinces beyond
+              Italy, expanded the Senate to 900 members, and implemented land
+              reforms to provide for his veterans and the urban poor.
+            </p>
+            <p>
+              Caesar centralised power while maintaining republican institutions
+              in form. He held multiple titles simultaneously - dictator,
+              consul, pontifex maximus - accumulating unprecedented authority.
+            </p>
+            <p>
+              His building projects provided employment and beautified Rome,
+              while his policies aimed to address long-standing social and
+              economic issues that had plagued the Republic.
+            </p>
+          </div>
+          <div class="content-image">
+            <img
+              src="https://cdn.sanity.io/images/cxgd3urn/production/9bb092f07748915a7ea6685dc029d7f778ed82c2-1608x911.jpg?w=1200&h=680&q=85&fit=crop&auto=format"
+              alt="Roman Forum"
+            />
+          </div>
         </div>
+
+        <div class="reforms-grid">
+          <div class="reform-card">
+            <h3>Calendar Reform</h3>
+            <p>
+              Introduced the Julian calendar with 365 days and leap years, basis
+              for modern calendar
+            </p>
+          </div>
+          <div class="reform-card">
+            <h3>Citizenship Expansion</h3>
+            <p>
+              Granted Roman citizenship to provinces beyond Italy, expanding
+              rights and integration
+            </p>
+          </div>
+          <div class="reform-card">
+            <h3>Senate Expansion</h3>
+            <p>
+              Increased Senate membership to 900, including provincials and
+              military officers
+            </p>
+          </div>
+          <div class="reform-card">
+            <h3>Urban Development</h3>
+            <p>
+              Initiated massive building projects including a new Forum and
+              public works
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
+    <section id="legacy" style="background-color: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Death and Legacy</h2>
+        </div>
+
+        <div class="content-grid">
+          <div class="content-image">
+            <img
+              src="https://imageio.forbes.com/specials-images/imageserve/66ac54d59683b78bb9fa051a/-Much-Ado-About-Nothing--by-William-Shakespeare/960x0.jpg?height=446&width=711&fit=bounds"
+              alt="Shakespeare play"
+            />
+          </div>
+          <div class="content-text">
+            <h3>How Is Caesar Remembered?</h3>
+            <p>
+              Caesar was assassinated on the Ides of March (March 15), 44 BCE by
+              a group of senators led by Brutus and Cassius. They believed they
+              were saving the Republic from tyranny.
+            </p>
+            <p>
+              His death sparked another civil war, ultimately leading to the end
+              of the Republic and beginning of the Roman Empire under his
+              adopted heir, Augustus.
+            </p>
+            <p>
+              Caesar's legacy includes the Julian calendar, the title "Caesar"
+              becoming synonymous with ruler (Kaiser, Tsar), and his writings
+              which remain important historical sources.
+            </p>
+            <p>
+              William Shakespeare's play "Julius Caesar" immortalised his story,
+              focusing on themes of power, betrayal, and political morality that
+              continue to resonate today.
+            </p>
+          </div>
+        </div>
+
+        <div class="legacy-items">
+          <div class="legacy-item">
+            <div class="legacy-icon">
+              <i class="fas fa-theater-masks"></i>
+            </div>
+            <h3>Shakespeare's Play</h3>
+            <p>
+              Immortalised Caesar in literature with timeless themes of power
+              and betrayal
+            </p>
+          </div>
+          <div class="legacy-item">
+            <div class="legacy-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Julian Calendar</h3>
+            <p>
+              Revolutionised timekeeping, basis for Gregorian calendar used
+              today
+            </p>
+          </div>
+          <div class="legacy-item">
+            <div class="legacy-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <h3>Imperial Title</h3>
+            <p>
+              "Caesar" became title for Roman emperors, influencing terms like
+              Kaiser and Tsar
+            </p>
+          </div>
+          <div class="legacy-item">
+            <div class="legacy-icon">
+              <i class="fas fa-monument"></i>
+            </div>
+            <h3>Cultural Symbol</h3>
+            <p>
+              Enduring symbol of ambition, power, and the transition from
+              republic to empire
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-        <div class="container">
-            <p>All coded and programmed by Sarah Hoang of 7E - Canley Vale High School History Assignment</p>
-            <p>Word Count: Approximately 720 words</p>
+      <div class="container">
+        <div class="bibliography">
+          <p>
+            <span class="bold">Bibliography:</span>
+            https://www.britannica.com/biography/Julius-Caesar-Roman-ruler
+          </p>
+          <p>https://www.livescience.com/julius-caesar</p>
+          <p>
+            https://www.history.com/articles/julius-caesar-ancient-roman-dictator-importance
+          </p>
         </div>
+        <p>All coded and programmed by Sarah Hoang of 7E</p>
+        <p>Word Count: Approximately 720 words</p>
+      </div>
     </footer>
-    
+
     <div class="section-counter">
-        <span id="current-section">1</span>
+      <span id="current-section">1</span>
     </div>
 
     <script>
-        // Navigation highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section');
-        const counter = document.getElementById('current-section');
-        
-        // Update active navigation link
-        function updateActiveNav() {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                    
-                    // Update section counter
-                    switch(current) {
-                        case 'personal-life':
-                            counter.textContent = '1';
-                            break;
-                        case 'military':
-                            counter.textContent = '2';
-                            break;
-                        case 'reforms':
-                            counter.textContent = '3';
-                            break;
-                        case 'legacy':
-                            counter.textContent = '4';
-                            break;
-                    }
-                }
-            });
-        }
-        
-        // Smooth scrolling for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
+      // Navigation highlighting
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section');
+      const counter = document.getElementById('current-section');
+
+      // Update active navigation link
+      function updateActiveNav() {
+        let current = '';
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
         });
-        
-        // Update navigation on scroll
-        window.addEventListener('scroll', updateActiveNav);
-        
-        // Initialize
-        updateActiveNav();
 
-        // Interactive Map Functionality
-        const mapData = {
-            "gaul": [
-                {
-                    id: "cisalpine-gaul",
-                    name: "Cisalpine Gaul",
-                    left: "30%",
-                    top: "40%",
-                    width: "15%",
-                    height: "20%",
-                    title: "Cisalpine Gaul Campaign",
-                    description: "Caesar's first major campaign in Gaul began here in 58 BCE. He defeated the Helvetii and prevented their migration through Roman territory.",
-                    date: "58 BCE"
-                },
-                {
-                    id: "transalpine-gaul",
-                    name: "Transalpine Gaul",
-                    left: "20%",
-                    top: "30%",
-                    width: "20%",
-                    height: "25%",
-                    title: "Transalpine Gaul Campaign",
-                    description: "Caesar secured this region and established Roman control, defeating various Gallic tribes and establishing Roman allies.",
-                    date: "58-57 BCE"
-                },
-                {
-                    id: "belgica",
-                    name: "Belgica",
-                    left: "25%",
-                    top: "15%",
-                    width: "15%",
-                    height: "20%",
-                    title: "Belgic Campaign",
-                    description: "In 57 BCE, Caesar defeated the Belgae tribes who were considered the bravest of the Gauls. This campaign secured northern Gaul.",
-                    date: "57 BCE"
-                },
-                {
-                    id: "britannia",
-                    name: "Britannia",
-                    left: "15%",
-                    top: "10%",
-                    width: "10%",
-                    height: "15%",
-                    title: "British Expeditions",
-                    description: "Caesar conducted two expeditions to Britain in 55 and 54 BCE, the first Roman military incursions into the island.",
-                    date: "55-54 BCE"
-                },
-                {
-                    id: "germania",
-                    name: "Germania",
-                    left: "40%",
-                    top: "15%",
-                    width: "15%",
-                    height: "20%",
-                    title: "German Campaigns",
-                    description: "Caesar crossed the Rhine twice to campaign against Germanic tribes, building a famous bridge in just 10 days.",
-                    date: "55 & 53 BCE"
-                }
-            ],
-            "civil": [
-                {
-                    id: "italy",
-                    name: "Italy",
-                    left: "35%",
-                    top: "45%",
-                    width: "10%",
-                    height: "15%",
-                    title: "March on Rome",
-                    description: "In 49 BCE, Caesar famously crossed the Rubicon River with his army, beginning the civil war against Pompey and the Senate.",
-                    date: "49 BCE"
-                },
-                {
-                    id: "hispania",
-                    name: "Hispania",
-                    left: "10%",
-                    top: "50%",
-                    width: "15%",
-                    height: "20%",
-                    title: "Spanish Campaign",
-                    description: "Caesar defeated Pompey's legions in Spain, securing the western provinces before facing Pompey directly in Greece.",
-                    date: "49 BCE"
-                },
-                {
-                    id: "greece",
-                    name: "Greece",
-                    left: "50%",
-                    top: "45%",
-                    width: "15%",
-                    height: "15%",
-                    title: "Battle of Pharsalus",
-                    description: "In 48 BCE, Caesar defeated Pompey's larger army at Pharsalus through superior tactics and troop morale.",
-                    date: "48 BCE"
-                },
-                {
-                    id: "egypt",
-                    name: "Egypt",
-                    left: "60%",
-                    top: "60%",
-                    width: "10%",
-                    height: "15%",
-                    title: "Alexandrian War",
-                    description: "Caesar pursued Pompey to Egypt, where he became involved in the Egyptian civil war and famously met Cleopatra.",
-                    date: "48-47 BCE"
-                },
-                {
-                    id: "asia-minor",
-                    name: "Asia Minor",
-                    left: "65%",
-                    top: "45%",
-                    width: "15%",
-                    height: "15%",
-                    title: "Battle of Zela",
-                    description: "Caesar quickly defeated Pharnaces II of Pontus, leading to his famous report 'Veni, Vidi, Vici' (I came, I saw, I conquered).",
-                    date: "47 BCE"
-                },
-                {
-                    id: "africa",
-                    name: "Africa",
-                    left: "40%",
-                    top: "70%",
-                    width: "15%",
-                    height: "15%",
-                    title: "African Campaign",
-                    description: "Caesar defeated the remaining Optimate forces at the Battle of Thapsus, securing control of North Africa.",
-                    date: "46 BCE"
-                },
-                {
-                    id: "hispania-2",
-                    name: "Hispania",
-                    left: "10%",
-                    top: "50%",
-                    width: "15%",
-                    height: "20%",
-                    title: "Battle of Munda",
-                    description: "Caesar's final victory in the civil war at Munda in 45 BCE, where he defeated the sons of Pompey.",
-                    date: "45 BCE"
-                }
-            ]
-        };
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
 
-        const mapElement = document.getElementById('campaign-map');
-        const mapTitle = document.getElementById('map-title');
-        const mapDescription = document.getElementById('map-description');
-        const mapDate = document.getElementById('map-date');
-        const mapButtons = document.querySelectorAll('.map-btn');
-        
-        let currentCampaign = 'gaul';
-        let activeRegion = null;
+            // Update section counter
+            switch (current) {
+              case 'personal-life':
+                counter.textContent = '1';
+                break;
+              case 'military':
+                counter.textContent = '2';
+                break;
+              case 'reforms':
+                counter.textContent = '3';
+                break;
+              case 'legacy':
+                counter.textContent = '4';
+                break;
+            }
+          }
+        });
+      }
 
-        // Initialize the map
-        function initMap() {
+      // Smooth scrolling for navigation links
+      navLinks.forEach((link) => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+
+          window.scrollTo({
+            top: targetSection.offsetTop - 80,
+            behavior: 'smooth',
+          });
+        });
+      });
+
+      // Update navigation on scroll
+      window.addEventListener('scroll', updateActiveNav);
+
+      // Initialise
+      updateActiveNav();
+
+      // Interactive Map Functionality
+      const mapData = {
+        gaul: [
+          {
+            id: 'cisalpine-gaul',
+            name: 'Cisalpine Gaul',
+            left: '30%',
+            top: '40%',
+            width: '15%',
+            height: '20%',
+            title: 'Cisalpine Gaul Campaign',
+            description:
+              "Caesar's first major campaign in Gaul began here in 58 BCE. He defeated the Helvetii and prevented their migration through Roman territory.",
+            date: '58 BCE',
+          },
+          {
+            id: 'transalpine-gaul',
+            name: 'Transalpine Gaul',
+            left: '20%',
+            top: '30%',
+            width: '20%',
+            height: '25%',
+            title: 'Transalpine Gaul Campaign',
+            description:
+              'Caesar secured this region and established Roman control, defeating various Gallic tribes and establishing Roman allies.',
+            date: '58-57 BCE',
+          },
+          {
+            id: 'belgica',
+            name: 'Belgica',
+            left: '25%',
+            top: '15%',
+            width: '15%',
+            height: '20%',
+            title: 'Belgic Campaign',
+            description:
+              'In 57 BCE, Caesar defeated the Belgae tribes who were considered the bravest of the Gauls. This campaign secured northern Gaul.',
+            date: '57 BCE',
+          },
+          {
+            id: 'britannia',
+            name: 'Britannia',
+            left: '15%',
+            top: '10%',
+            width: '10%',
+            height: '15%',
+            title: 'British Expeditions',
+            description:
+              'Caesar conducted two expeditions to Britain in 55 and 54 BCE, the first Roman military incursions into the island.',
+            date: '55-54 BCE',
+          },
+          {
+            id: 'germania',
+            name: 'Germania',
+            left: '40%',
+            top: '15%',
+            width: '15%',
+            height: '20%',
+            title: 'German Campaigns',
+            description:
+              'Caesar crossed the Rhine twice to campaign against Germanic tribes, building a famous bridge in just 10 days.',
+            date: '55 & 53 BCE',
+          },
+        ],
+        civil: [
+          {
+            id: 'italy',
+            name: 'Italy',
+            left: '35%',
+            top: '45%',
+            width: '10%',
+            height: '15%',
+            title: 'March on Rome',
+            description:
+              'In 49 BCE, Caesar famously crossed the Rubicon River with his army, beginning the civil war against Pompey and the Senate.',
+            date: '49 BCE',
+          },
+          {
+            id: 'hispania',
+            name: 'Hispania',
+            left: '10%',
+            top: '50%',
+            width: '15%',
+            height: '20%',
+            title: 'Spanish Campaign',
+            description:
+              "Caesar defeated Pompey's legions in Spain, securing the western provinces before facing Pompey directly in Greece.",
+            date: '49 BCE',
+          },
+          {
+            id: 'greece',
+            name: 'Greece',
+            left: '50%',
+            top: '45%',
+            width: '15%',
+            height: '15%',
+            title: 'Battle of Pharsalus',
+            description:
+              "In 48 BCE, Caesar defeated Pompey's larger army at Pharsalus through superior tactics and troop morale.",
+            date: '48 BCE',
+          },
+          {
+            id: 'egypt',
+            name: 'Egypt',
+            left: '60%',
+            top: '60%',
+            width: '10%',
+            height: '15%',
+            title: 'Alexandrian War',
+            description:
+              'Caesar pursued Pompey to Egypt, where he became involved in the Egyptian civil war and famously met Cleopatra.',
+            date: '48-47 BCE',
+          },
+          {
+            id: 'asia-minor',
+            name: 'Asia Minor',
+            left: '65%',
+            top: '45%',
+            width: '15%',
+            height: '15%',
+            title: 'Battle of Zela',
+            description:
+              "Caesar quickly defeated Pharnaces II of Pontus, leading to his famous report 'Veni, Vidi, Vici' (I came, I saw, I conquered).",
+            date: '47 BCE',
+          },
+          {
+            id: 'africa',
+            name: 'Africa',
+            left: '40%',
+            top: '70%',
+            width: '15%',
+            height: '15%',
+            title: 'African Campaign',
+            description:
+              'Caesar defeated the remaining Optimate forces at the Battle of Thapsus, securing control of North Africa.',
+            date: '46 BCE',
+          },
+          {
+            id: 'hispania-2',
+            name: 'Hispania',
+            left: '10%',
+            top: '50%',
+            width: '15%',
+            height: '20%',
+            title: 'Battle of Munda',
+            description:
+              "Caesar's final victory in the civil war at Munda in 45 BCE, where he defeated the sons of Pompey.",
+            date: '45 BCE',
+          },
+        ],
+      };
+
+      const mapElement = document.getElementById('campaign-map');
+      const mapTitle = document.getElementById('map-title');
+      const mapDescription = document.getElementById('map-description');
+      const mapDate = document.getElementById('map-date');
+      const mapButtons = document.querySelectorAll('.map-btn');
+
+      let currentCampaign = 'gaul';
+      let activeRegion = null;
+
+      // Initialise the map
+      function initMap() {
+        renderMap(currentCampaign);
+
+        // Add event listeners to map buttons
+        mapButtons.forEach((button) => {
+          button.addEventListener('click', function () {
+            // Update active button
+            mapButtons.forEach((btn) => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update map
+            currentCampaign = this.getAttribute('data-campaign');
             renderMap(currentCampaign);
-            
-            // Add event listeners to map buttons
-            mapButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update active button
-                    mapButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update map
-                    currentCampaign = this.getAttribute('data-campaign');
-                    renderMap(currentCampaign);
-                });
-            });
+          });
+        });
+      }
+
+      // Render the map based on selected campaign
+      function renderMap(campaign) {
+        // Clear existing regions
+        mapElement.innerHTML = '';
+
+        let regionsToShow = [];
+
+        if (campaign === 'all') {
+          regionsToShow = [...mapData.gaul, ...mapData.civil];
+        } else {
+          regionsToShow = mapData[campaign];
         }
 
-        // Render the map based on selected campaign
-        function renderMap(campaign) {
-            // Clear existing regions
-            mapElement.innerHTML = '';
-            
-            let regionsToShow = [];
-            
-            if (campaign === 'all') {
-                regionsToShow = [...mapData.gaul, ...mapData.civil];
-            } else {
-                regionsToShow = mapData[campaign];
-            }
-            
-            // Create regions
-            regionsToShow.forEach(region => {
-                const regionElement = document.createElement('div');
-                regionElement.className = 'region';
-                regionElement.id = region.id;
-                regionElement.textContent = region.name;
-                regionElement.style.left = region.left;
-                regionElement.style.top = region.top;
-                regionElement.style.width = region.width;
-                regionElement.style.height = region.height;
-                
-                regionElement.addEventListener('click', function() {
-                    // Update active region
-                    if (activeRegion) {
-                        activeRegion.classList.remove('active');
-                    }
-                    this.classList.add('active');
-                    activeRegion = this;
-                    
-                    // Update info panel
-                    mapTitle.textContent = region.title;
-                    mapDescription.textContent = region.description;
-                    mapDate.textContent = region.date;
-                });
-                
-                mapElement.appendChild(regionElement);
-            });
-            
-            // Reset info panel
-            if (!activeRegion) {
-                mapTitle.textContent = 'Select a region on the map';
-                mapDescription.textContent = 'Click on any highlighted region to learn about Caesar\'s military campaigns in that area.';
-                mapDate.textContent = '';
-            }
-        }
+        // Create regions
+        regionsToShow.forEach((region) => {
+          const regionElement = document.createElement('div');
+          regionElement.className = 'region';
+          regionElement.id = region.id;
+          regionElement.textContent = region.name;
+          regionElement.style.left = region.left;
+          regionElement.style.top = region.top;
+          regionElement.style.width = region.width;
+          regionElement.style.height = region.height;
 
-        // Initialize the map when the page loads
-        document.addEventListener('DOMContentLoaded', initMap);
+          regionElement.addEventListener('click', function () {
+            // Update active region
+            if (activeRegion) {
+              activeRegion.classList.remove('active');
+            }
+            this.classList.add('active');
+            activeRegion = this;
+
+            // Update info panel
+            mapTitle.textContent = region.title;
+            mapDescription.textContent = region.description;
+            mapDate.textContent = region.date;
+          });
+
+          mapElement.appendChild(regionElement);
+        });
+
+        // Reset info panel
+        if (!activeRegion) {
+          mapTitle.textContent = 'Select a region on the map';
+          mapDescription.textContent =
+            "Click on any highlighted region to learn about Caesar's military campaigns in that area.";
+          mapDate.textContent = '';
+        }
+      }
+
+      // Initialise the map when the page loads
+      document.addEventListener('DOMContentLoaded', initMap);
     </script>
-</body>
+  </body>
 </html>
