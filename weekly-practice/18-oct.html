@@ -13,6 +13,16 @@
       <button class="searchButton" onclick="arraySearchElement()">
         search
       </button>
+      <!--numbers-->
+      <h1>List of Names</h1>
+      <div>
+        <input class="input" type="number" placeholder="Number" /><button
+          class="button"
+        >
+          Print
+        </button>
+      </div>
+      <ul class="list"></ul>
     </div>
 
     <script>
@@ -49,6 +59,24 @@
         } else {
           alert('Item Not Found');
         }
+      }
+
+      //number
+      function number() {
+        let button = document.querySelector('.button');
+        let input = document.querySelector('.input');
+        let list = document.querySelector('.list');
+
+        button.onclick = function () {
+          let num = Number(input.value);
+          let html = '';
+
+          for (let i = 1; i <= num; i++) {
+            html = html + `<li>${i}</li>`;
+          }
+
+          list.innerHTML = html;
+        };
       }
     </script>
   </body>
