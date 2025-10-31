@@ -30,13 +30,19 @@
         <button class="button" onclick="filterLength()">Filter</button>
       </div>
       <ul class="list"></ul>
+      <!--number sum-->
+      <button onclick="numberSum()">sum of all numbers</button>
+      <div class="result2"></div>
+      <!--reverse array-->
+      <button onclick="reverse()">reverse array</button>
+      <div class="result3"></div>
     </div>
 
     <script>
       // print numbers
       function printNumbers() {
-        let list = document.querySelector('.list');
-        let content = '';
+        let list = document.querySelector(".list");
+        let content = "";
 
         for (let i = 0; i <= 1000; i++) {
           console.log(i);
@@ -49,8 +55,8 @@
 
       // array element search
       function arraySearchElement() {
-        let items = ['apple', 'banana', 'orange', 'pear'];
-        let input = document.querySelector('.input');
+        let items = ["apple", "banana", "orange", "pear"];
+        let input = document.querySelector(".input");
         let inputValue = input.value;
         let hasItemFound = false;
 
@@ -62,21 +68,21 @@
           }
         }
         if (hasItemFound) {
-          alert('Item Found');
+          alert("Item Found");
         } else {
-          alert('Item Not Found');
+          alert("Item Not Found");
         }
       }
 
       //number
       function number() {
-        let button = document.querySelector('.button');
-        let input = document.querySelector('.input3');
-        let list = document.querySelector('.list');
+        let button = document.querySelector(".button");
+        let input = document.querySelector(".input3");
+        let list = document.querySelector(".list");
 
         button.onclick = function () {
           let num = Number(input.value);
-          let html = '';
+          let html = "";
 
           for (let i = 1; i <= num; i++) {
             html = html + `<li>${i}</li>`;
@@ -88,10 +94,10 @@
 
       // Array Filter by Length
       function filterLength() {
-        let words = ['cat', 'bird', 'piggy', 'turtle', 'raccoon'];
-        let d1 = document.querySelector('.list');
-        let inputValue = document.querySelector('.input2').value;
-        let i1 = document.querySelector('.input2');
+        let words = ["cat", "bird", "piggy", "turtle", "raccoon"];
+        let d1 = document.querySelector(".list");
+        let inputValue = document.querySelector(".input2").value;
+        let i1 = document.querySelector(".input2");
         let value = i1.value;
         // loop
         for (let i = 0; i < words.length; i++) {
@@ -100,13 +106,35 @@
           //get current item length
           let currentItemLength = currentItem.length;
 
-          console.log('current item length is', currentItemLength);
+          console.log("current item length is", currentItemLength);
           //get the qualified item that has numbers of characters greater than input value.
           if (currentItemLength > inputValue) {
-            console.log('filtered item', currentItem);
+            console.log("filtered item", currentItem);
             d1.innerHTML = d1.innerHTML + `<li>${currentItem}</li>`;
           }
         }
+      }
+      // sum of all numbers
+      function numberSum() {
+        let numbers = [1, 2, 3, 4, 5];
+        let result = document.querySelector(".result2");
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+          sum = sum + numbers[i];
+        }
+        result.innerHTML = `${sum}`;
+      }
+
+      // reverse array
+      function reverse() {
+        let array = ["first", "second", "third", "forth"];
+        let result = document.querySelector(".result3");
+        let string = "";
+
+        for (let i = array.length - 1; i >= 0; i--) {
+          let string = string + array[i]
+        } result.innerHTML = `string`;
       }
     </script>
   </body>

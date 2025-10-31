@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+    body {
+      font-family: "Sour Gummy";
+      font-optical-sizing: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <button onclick="tellMeMore(testPerson2)">cool button</button>
+
+    <h1>Learn More About Me</h1>
+    <div class="aboutMe"></div>
+  </body>
+  <script>
+    function tellMeMore(person) {
+      console.log(`My name is ${person.name}`);
+      console.log(`I am ${person.age} years old`);
+      let aboutMe = document.querySelector(".aboutMe");
+      let info = `<div>Name: ${testPerson.name}</div>
+      <div>Age: ${testPerson.age}</div>`;
+      aboutMe.innerHTML = info;
+
+      if (person.age < 18) {
+        console.log("I am unemployed");
+      }
+
+      if (person.age > 18 && person.age < 65) {
+        console.log("I am employed");
+      }
+    }
+
+    let testPerson2 = {
+      name: "Mr Giggles",
+      age: 30,
+      gender: "possibly male",
+    };
+
+    let testPerson = {
+      name: "Sarah Hoang",
+      age: 13,
+      gender: "female",
+      occupation: "student",
+
+      return: "",
+    };
+  </script>
+</html>
