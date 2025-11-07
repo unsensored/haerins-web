@@ -2,225 +2,315 @@
 <html lang="en">
   <head>
     <title>HTML Template</title>
-  </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
       body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f6ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 30px;
-      height: 100vh;
-    }
+        font-family: Arial, sans-serif;
+        background-color: #f2f6ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        height: 100vh;
+      }
 
-     .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 300px;
-      text-align: center;
-      padding: 20px;
-    }
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+      }
 
-    .person-details p {
-      margin: 6px 0;
-      color: #444;
-    }
+      .person-details p {
+        margin: 6px 0;
+        color: #444;
+      }
 
-    .main {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+      .main {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
 
-    .main:hover {
-      background-color: #0056b3;
-    }
+      .main:hover {
+        background-color: #0056b3;
+      }
 
-     .form-box {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 30px;
-      width: 350px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
+      .form-box {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        width: 350px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .heading {
-      font-size: 22px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-    }
+      .heading {
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
 
-    .text-box {
-      width: 95%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
+      .text-box {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+      }
 
-    .submit {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
+      .submit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
 
-    .submit:hover {
-      background-color: #0056cc;
-    }
+      .submit:hover {
+        background-color: #0056cc;
+      }
 
-    .result {
-      margin-top: 20px;
-      text-align: center;
-      width: 100%;
-    }
+      .result {
+        margin-top: 20px;
+        text-align: center;
+        width: 100%;
+      }
 
-    .result img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-      border: 2px solid #e0a5d6;
-    }
+      .result img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border: 2px solid #e0a5d6;
+      }
 
-    .result p {
-      margin: 5px 0;
-      color: #444;
-      font-size: 15px;
-    }
-  </style>
+      .result p {
+        margin: 5px 0;
+        color: #444;
+        font-size: 15px;
+      }
+    </style>
+  </head>
   <body>
     <button onclick="tellMeMore(testPerson2)">cool button</button>
 
     <h1>Learn More About Me</h1>
     <div class="aboutMe"></div>
-<!--26-->
-      <div class="card">
-    <h2>Click to see person details</h2>
-    <div class="person-details"></div>
-    <button class="main" onclick="showPerson()">Show Details</button> </div>
-    <!--27-->
-      <div class="form-box">
-    <p class="heading">Enter Your Profile</p>
+    <!-- exercise 26-->
+    <div class="card">
+      <h2>Click to see person details</h2>
+      <div class="person-details"></div>
+      <button class="main" onclick="toggleDetails()">Show Details</button>
+    </div>
+    <!--exercise 27-->
+    <form class="form-box" onsubmit="onFormSubmit()">
+      <p class="heading">Enter Your Profile</p>
 
-    <input type="text" class="first-name text-box" placeholder="First Name">
-    <input type="text" class="last-name text-box" placeholder="Last Name">
-    <input type="number" class="age text-box" placeholder="Age">
-    <input type="text" class="occupation text-box" placeholder="Occupation">
-    <input type="text" class="avatar text-box" placeholder="Avatar URL">
+      <input
+        name="firstname"
+        type="text"
+        class="first-name text-box"
+        placeholder="First Name"
+      />
+      <input
+        name="lastname"
+        type="text"
+        class="last-name text-box"
+        placeholder="Last Name"
+      />
+      <input name="age" type="number" class="age text-box" placeholder="Age" />
+      <input
+        name="occupation"
+        type="text"
+        class="occupation text-box"
+        placeholder="Occupation"
+      />
+      <input
+        name="avatar"
+        type="text"
+        class="avatar text-box"
+        placeholder="Avatar URL"
+      />
 
-    <button class="submit" onclick="showProfile()">Submit</button>
+      <button class="submit" type="submit">Submit</button>
 
-    <div class="result"></div>
-  </body>
-  <script>
-    function tellMeMore(person) {
-      console.log(`My name is ${person.name}`);
-      console.log(`I am ${person.age} years old`);
-      let aboutMe = document.querySelector(".aboutMe");
-      let info = `<div>Name: ${testPerson.name}</div>
+      <div class="result"></div>
+    </form>
+    <!--exercise 28-->
+    <div class="card">
+      <h3>Many Profiles</h3>
+    </div>
+    <script>
+      function tellMeMore(person) {
+        console.log(`My name is ${person.name}`);
+        console.log(`I am ${person.age} years old`);
+        let aboutMe = document.querySelector(".aboutMe");
+        let info = `<div>Name: ${testPerson.name}</div>
       <div>Age: ${testPerson.age}</div>`;
-      aboutMe.innerHTML = info;
+        aboutMe.innerHTML = info;
 
-      if (person.age < 18) {
-        console.log("I am unemployed");
+        if (person.age < 18) {
+          console.log("I am unemployed");
+        }
+
+        if (person.age > 18 && person.age < 65) {
+          console.log("I am employed");
+        }
       }
 
-      if (person.age > 18 && person.age < 65) {
-        console.log("I am employed");
-      }
-    }
-
-    let testPerson2 = {
-      name: "Mr Giggles",
-      age: 30,
-      gender: "possibly male",
-    };
-
-    let testPerson = {
-      name: "Sarah Hoang",
-      age: 13,
-      gender: "female",
-      occupation: "student",
-
-      return: "",
-    };
-// 26
-    let person = {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30,
-      occupation: 'Software engineer'
-    };
-
-    function showPerson() {
-      let detailsContainer = document.querySelector('.person-details');
-      let details = 
-        "<p><strong>First Name:</strong> " + person.firstName + "</p>" +
-        "<p><strong>Last Name:</strong> " + person.lastName + "</p>" +
-        "<p><strong>Age:</strong> " + person.age + "</p>" +
-        "<p><strong>Occupation:</strong> " + person.occupation + "</p>";
-
-      detailsContainer.innerHTML = details;
-    }
-
-    // 27
-     function showProfile() {
-      let firstInput = document.querySelector('.first-name');
-      let lastInput = document.querySelector('.last-name');
-      let ageInput = document.querySelector('.age');
-      let occupationInput = document.querySelector('.occupation');
-      let avatarInput = document.querySelector('.avatar');
-      let submitButton = document.querySelector('.submit');
-      let resultBox = document.querySelector('.result');
-
-      let user = {
-        firstName: firstInput.value,
-        lastName: lastInput.value,
-        age: ageInput.value,
-        occupation: occupationInput.value,
-        avatar: avatarInput.value
+      let testPerson2 = {
+        name: "Mr Giggles",
+        age: 30,
+        gender: "possibly male",
       };
 
-      let content = "";
-      if(user.avatar) {
-        content += "<img src='" + user.avatar + "' alt='Profile Picture'>";
+      let testPerson = {
+        name: "Sarah Hoang",
+        age: 13,
+        gender: "female",
+        occupation: "student",
+
+        return: "",
+      };
+      // exercise 26
+
+      let detailVisibility = false;
+      function toggleDetails() {
+        let person = {
+          firstName: "John",
+          lastName: "Doe",
+          age: 30,
+          occupation: "Software engineer",
+        };
+
+        let container = document.querySelector(".person-details");
+
+        let button = document.querySelector(".main");
+
+        if (detailVisibility == false) {
+          let details = `
+      <p><strong>First Name:</strong> ${person.firstName}</p>
+      <p><strong>Last Name:</strong> ${person.lastName}</p>
+      <p><strong>Age:</strong> ${person.age}</p>
+      <p><strong>Occupation:</strong> ${person.occupation}</p>
+      `;
+
+          button.innerHTML = "Hide content";
+          container.innerHTML = details;
+          detailVisibility = true;
+        } else {
+          button.innerHTML = "Show content";
+          container.innerHTML = "Content Hidden";
+          detailVisibility = false;
+        }
       }
-      content += "<p><strong>Name:</strong> " + user.firstName + " " + user.lastName + "</p>";
-      content += "<p><strong>Age:</strong> " + user.age + "</p>";
-      content += "<p><strong>Occupation:</strong> " + user.occupation + "</p>";
 
-      resultBox.innerHTML = content;
+      // exercise 27
+      function onFormSubmit(event) {
+        let form = document.querySelector(".form-box");
+        let formData = new FormData(form);
+      }
+      function showProfile() {
+        let firstInput = document.querySelector(".first-name");
+        let lastInput = document.querySelector(".last-name");
+        let ageInput = document.querySelector(".age");
+        let occupationInput = document.querySelector(".occupation");
+        let avatarInput = document.querySelector(".avatar");
+        let submitButton = document.querySelector(".submit");
+        let resultBox = document.querySelector(".result");
 
-      // Disable all inputs and submit
-      firstInput.disabled = true;
-      lastInput.disabled = true;
-      ageInput.disabled = true;
-      occupationInput.disabled = true;
-      avatarInput.disabled = true;
-      submitButton.disabled = true;
-      submitButton.style.backgroundColor = "#ccc";
-      submitButton.style.cursor = "not-allowed";
-    }
-  </script>
+        let user = {
+          firstname: formData.get("firstname"),
+          lastname: formData.get("lastname"),
+          age: formData.get("age"),
+          occupation: formData.get("occupation"),
+          avatar: formData.get("avatar"),
+        };
+
+        let content = "";
+        if (user.avatar) {
+          content += `<img src='${user.avatar}' alt='Profile Picture'>`;
+        }
+        content += `
+        <p><strong>Name:</strong> ${user.firstname} ${user.lastname}</p>
+        <p><strong>Age:</strong> ${user.age}</p>
+        <p><strong>Occupation:</strong> ${user.occupation}</p>`;
+
+        resultBox.innerHTML = content;
+
+        firstInput.disabled = true;
+        lastInput.disabled = true;
+        ageInput.disabled = true;
+        occupationInput.disabled = true;
+        avatarInput.disabled = true;
+        submitButton.disabled = true;
+      }
+
+      // exercise 28
+      let profiles = [
+        {
+          fullName: "Alice Johnson",
+          gender: "Female",
+          occupation: "Web Developer",
+          avatar: {
+            images: {
+              large:
+                "https://t3.ftcdn.net/jpg/05/98/48/88/360_F_598488869_fiLUgajDxyaoxE9D3SuHMZfD56IjrBXe.jpg",
+            },
+          },
+        },
+        {
+          fullName: "Bob Smith",
+          gender: "Male",
+          occupation: "Graphic Designer",
+          avatar: {
+            images: {
+              large:
+                "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
+            },
+          },
+        },
+        {
+          fullName: "Carol White",
+          gender: "Female",
+          occupation: "Project Manager",
+          avatar: {
+            images: {
+              large:
+                "https://t3.ftcdn.net/jpg/05/98/48/88/360_F_598488869_fiLUgajDxyaoxE9D3SuHMZfD56IjrBXe.jpg",
+            },
+          },
+        },
+        {
+          fullName: "Dave Brown",
+          gender: "Male",
+          occupation: "Software Engineer",
+          avatar: {
+            images: {
+              large:
+                "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
+            },
+          },
+        },
+      ];
+    </script>
+  </body>
 </html>
