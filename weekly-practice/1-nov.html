@@ -6,12 +6,107 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
-    body {
-      font-family: "Sour Gummy";
-      font-optical-sizing: auto;
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6ff;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      gap: 30px;
+      height: 100vh;
+    }
+
+     .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .person-details p {
+      margin: 6px 0;
+      color: #444;
+    }
+
+    .main {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .main:hover {
+      background-color: #0056b3;
+    }
+
+     .form-box {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .heading {
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .text-box {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .submit {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .submit:hover {
+      background-color: #0056cc;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .result img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 2px solid #e0a5d6;
+    }
+
+    .result p {
+      margin: 5px 0;
+      color: #444;
+      font-size: 15px;
     }
   </style>
   <body>
@@ -19,6 +114,24 @@
 
     <h1>Learn More About Me</h1>
     <div class="aboutMe"></div>
+<!--26-->
+      <div class="card">
+    <h2>Click to see person details</h2>
+    <div class="person-details"></div>
+    <button class="main" onclick="showPerson()">Show Details</button> </div>
+    <!--27-->
+      <div class="form-box">
+    <p class="heading">Enter Your Profile</p>
+
+    <input type="text" class="first-name text-box" placeholder="First Name">
+    <input type="text" class="last-name text-box" placeholder="Last Name">
+    <input type="number" class="age text-box" placeholder="Age">
+    <input type="text" class="occupation text-box" placeholder="Occupation">
+    <input type="text" class="avatar text-box" placeholder="Avatar URL">
+
+    <button class="submit" onclick="showProfile()">Submit</button>
+
+    <div class="result"></div>
   </body>
   <script>
     function tellMeMore(person) {
@@ -52,5 +165,62 @@
 
       return: "",
     };
+// 26
+    let person = {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30,
+      occupation: 'Software engineer'
+    };
+
+    function showPerson() {
+      let detailsContainer = document.querySelector('.person-details');
+      let details = 
+        "<p><strong>First Name:</strong> " + person.firstName + "</p>" +
+        "<p><strong>Last Name:</strong> " + person.lastName + "</p>" +
+        "<p><strong>Age:</strong> " + person.age + "</p>" +
+        "<p><strong>Occupation:</strong> " + person.occupation + "</p>";
+
+      detailsContainer.innerHTML = details;
+    }
+
+    // 27
+     function showProfile() {
+      let firstInput = document.querySelector('.first-name');
+      let lastInput = document.querySelector('.last-name');
+      let ageInput = document.querySelector('.age');
+      let occupationInput = document.querySelector('.occupation');
+      let avatarInput = document.querySelector('.avatar');
+      let submitButton = document.querySelector('.submit');
+      let resultBox = document.querySelector('.result');
+
+      let user = {
+        firstName: firstInput.value,
+        lastName: lastInput.value,
+        age: ageInput.value,
+        occupation: occupationInput.value,
+        avatar: avatarInput.value
+      };
+
+      let content = "";
+      if(user.avatar) {
+        content += "<img src='" + user.avatar + "' alt='Profile Picture'>";
+      }
+      content += "<p><strong>Name:</strong> " + user.firstName + " " + user.lastName + "</p>";
+      content += "<p><strong>Age:</strong> " + user.age + "</p>";
+      content += "<p><strong>Occupation:</strong> " + user.occupation + "</p>";
+
+      resultBox.innerHTML = content;
+
+      // Disable all inputs and submit
+      firstInput.disabled = true;
+      lastInput.disabled = true;
+      ageInput.disabled = true;
+      occupationInput.disabled = true;
+      avatarInput.disabled = true;
+      submitButton.disabled = true;
+      submitButton.style.backgroundColor = "#ccc";
+      submitButton.style.cursor = "not-allowed";
+    }
   </script>
 </html>
