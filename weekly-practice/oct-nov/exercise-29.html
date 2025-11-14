@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 400px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 80px;
+      height: 80px;
+    }
+
+    .container {
+      width: 600px;
+      height: 600px;
+      border: 2px dotted black;
+      position: relative;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div class="controls">
+      <button class="moveUp" onclick="controls('up')">Up</button>
+      <button class="moveLeft" onclick="controls('left')">Left</button>
+      <button class="moveDown" onclick="controls('down')">Down</button>
+      <button class="moveRight" onclick="controls('right')">Right</button>
+    </div>
+    <div class="container">
+      <div class="box" style="top: 0px; left: 0px"></div>
+    </div>
+
+    <script>
+      let posTop = 0;
+      let posLeft = 0;
+      let box = document.querySelector(".box");
+      let container = document.querySelector(".container");
+
+      let maxTop = container.offsetHeight - box.offsetHeight;
+      let maxLeft = container.offsetWidth - box.offsetWidth;
+      
+
+      function controls(direction) {
+        if (direction == "up") {
+          posTop = posTop - 10;
+        } else if (direction == "down") {
+          posTop = posTop + 10;
+        } else if (direction == "left") {
+          posLeft = posLeft - 10;
+        } else if (direction == "right") {
+          posLeft = posLeft + 10;
+        }
+
+        if (posTop < 0) {
+          posTop = 0;
+        }
+
+        if (posTop > maxTop) {
+          posTop = maxTop;
+        }
+
+        if (posLeft < 0) {
+          posLeft = 0;
+        }
+
+        if (posLeft > maxLeft) {
+          posLeft = maxLeft;
+        }
+
+        box.style.top = `${posTop}px`;
+        box.style.left = `${posLeft}px`;
+      }
+    </script>
+  </body>
+</html>
