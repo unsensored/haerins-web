@@ -4,7 +4,10 @@
     <title>HTML Template</title>
   </head>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
     body {
+      font-family: 'Sour Gummy', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,8 +24,20 @@
     }
 
     button {
+      font-family: 'Sour Gummy', sans-serif;
       width: 80px;
       height: 80px;
+      border-radius: 10px;
+      border: none;
+      background-color: rgb(219, 134, 162);
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      color: rgb(219, 134, 162);
+      background-color: #ddd8d8;
+      transition: 0.3s;
     }
 
     .container {
@@ -30,6 +45,7 @@
       height: 600px;
       border: 2px dotted black;
       position: relative;
+      border-radius: 10px;
     }
 
     .box {
@@ -37,6 +53,8 @@
       height: 100px;
       background-color: #ccc;
       position: absolute;
+      border-radius: 10px;
+      transition: 0.3s;
     }
   </style>
   <body>
@@ -59,6 +77,9 @@
       let maxTop = container.offsetHeight - box.offsetHeight;
       let maxLeft = container.offsetWidth - box.offsetWidth;
 
+      let moveInterval; // stores the interval
+
+      // Controls function (for buttons and arrow keys)
       function controls(direction) {
         if (direction == 'up') {
           posTop = posTop - 10;
@@ -70,25 +91,41 @@
           posLeft = posLeft + 10;
         }
 
-        if (posTop < 0) {
-          posTop = 0;
-        }
+        // Apply boundaries
+        if (posTop < 0) posTop = 0;
+        if (posTop > maxTop) posTop = maxTop;
+        if (posLeft < 0) posLeft = 0;
+        if (posLeft > maxLeft) posLeft = maxLeft;
 
-        if (posTop > maxTop) {
-          posTop = maxTop;
-        }
-
-        if (posLeft < 0) {
-          posLeft = 0;
-        }
-
-        if (posLeft > maxLeft) {
-          posLeft = maxLeft;
-        }
-
+        // Update box position
         box.style.top = `${posTop}px`;
         box.style.left = `${posLeft}px`;
       }
+
+      // Arrow key listener
+      document.addEventListener('keydown', function (event) {
+        // Only start a new interval if one isn’t running
+        if (!moveInterval) {
+          if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            moveInterval = setInterval(() => controls('up'), 50);
+          } else if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            moveInterval = setInterval(() => controls('down'), 50);
+          } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            moveInterval = setInterval(() => controls('left'), 50);
+          } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            moveInterval = setInterval(() => controls('right'), 50);
+          }
+        }
+      });
+
+      document.addEventListener('keyup', function (event) {
+        clearInterval(moveInterval); // stops the interval
+        moveInterval = null; // resets the variable
+      });
     </script>
   </body>
 </html>
