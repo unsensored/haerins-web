@@ -53,21 +53,20 @@
     <script>
       let posTop = 0;
       let posLeft = 0;
-      let box = document.querySelector(".box");
-      let container = document.querySelector(".container");
+      let box = document.querySelector('.box');
+      let container = document.querySelector('.container');
 
       let maxTop = container.offsetHeight - box.offsetHeight;
       let maxLeft = container.offsetWidth - box.offsetWidth;
-      
 
       function controls(direction) {
-        if (direction == "up") {
+        if (direction == 'up') {
           posTop = posTop - 10;
-        } else if (direction == "down") {
+        } else if (direction == 'down') {
           posTop = posTop + 10;
-        } else if (direction == "left") {
+        } else if (direction == 'left') {
           posLeft = posLeft - 10;
-        } else if (direction == "right") {
+        } else if (direction == 'right') {
           posLeft = posLeft + 10;
         }
 

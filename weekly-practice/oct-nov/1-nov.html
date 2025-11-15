@@ -3,7 +3,7 @@
   <head>
     <title>HTML Template</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
       body {
         font-family: Arial, sans-serif;
@@ -162,48 +162,48 @@
       function tellMeMore(person) {
         console.log(`My name is ${person.name}`);
         console.log(`I am ${person.age} years old`);
-        let aboutMe = document.querySelector(".aboutMe");
+        let aboutMe = document.querySelector('.aboutMe');
         let info = `<div>Name: ${testPerson.name}</div>
       <div>Age: ${testPerson.age}</div>`;
         aboutMe.innerHTML = info;
 
         if (person.age < 18) {
-          console.log("I am unemployed");
+          console.log('I am unemployed');
         }
 
         if (person.age > 18 && person.age < 65) {
-          console.log("I am employed");
+          console.log('I am employed');
         }
       }
 
       let testPerson2 = {
-        name: "Mr Giggles",
+        name: 'Mr Giggles',
         age: 30,
-        gender: "possibly male",
+        gender: 'possibly male',
       };
 
       let testPerson = {
-        name: "Sarah Hoang",
+        name: 'Sarah Hoang',
         age: 13,
-        gender: "female",
-        occupation: "student",
+        gender: 'female',
+        occupation: 'student',
 
-        return: "",
+        return: '',
       };
       // exercise 26
 
       let detailVisibility = false;
       function toggleDetails() {
         let person = {
-          firstName: "John",
-          lastName: "Doe",
+          firstName: 'John',
+          lastName: 'Doe',
           age: 30,
-          occupation: "Software engineer",
+          occupation: 'Software engineer',
         };
 
-        let container = document.querySelector(".person-details");
+        let container = document.querySelector('.person-details');
 
-        let button = document.querySelector(".main");
+        let button = document.querySelector('.main');
 
         if (detailVisibility == false) {
           let details = `
@@ -213,39 +213,39 @@
       <p><strong>Occupation:</strong> ${person.occupation}</p>
       `;
 
-          button.innerHTML = "Hide content";
+          button.innerHTML = 'Hide content';
           container.innerHTML = details;
           detailVisibility = true;
         } else {
-          button.innerHTML = "Show content";
-          container.innerHTML = "Content Hidden";
+          button.innerHTML = 'Show content';
+          container.innerHTML = 'Content Hidden';
           detailVisibility = false;
         }
       }
 
       // exercise 27
       function onFormSubmit(event) {
-        let form = document.querySelector(".form-box");
+        let form = document.querySelector('.form-box');
         let formData = new FormData(form);
       }
       function showProfile() {
-        let firstInput = document.querySelector(".first-name");
-        let lastInput = document.querySelector(".last-name");
-        let ageInput = document.querySelector(".age");
-        let occupationInput = document.querySelector(".occupation");
-        let avatarInput = document.querySelector(".avatar");
-        let submitButton = document.querySelector(".submit");
-        let resultBox = document.querySelector(".result");
+        let firstInput = document.querySelector('.first-name');
+        let lastInput = document.querySelector('.last-name');
+        let ageInput = document.querySelector('.age');
+        let occupationInput = document.querySelector('.occupation');
+        let avatarInput = document.querySelector('.avatar');
+        let submitButton = document.querySelector('.submit');
+        let resultBox = document.querySelector('.result');
 
         let user = {
-          firstname: formData.get("firstname"),
-          lastname: formData.get("lastname"),
-          age: formData.get("age"),
-          occupation: formData.get("occupation"),
-          avatar: formData.get("avatar"),
+          firstname: formData.get('firstname'),
+          lastname: formData.get('lastname'),
+          age: formData.get('age'),
+          occupation: formData.get('occupation'),
+          avatar: formData.get('avatar'),
         };
 
-        let content = "";
+        let content = '';
         if (user.avatar) {
           content += `<img src='${user.avatar}' alt='Profile Picture'>`;
         }
@@ -263,7 +263,6 @@
         avatarInput.disabled = true;
         submitButton.disabled = true;
       }
-
-          </script>
+    </script>
   </body>
 </html>

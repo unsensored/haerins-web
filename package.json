@@ -12,10 +12,9 @@
         "installDependencies": true
     },
     "devDependencies": {
-        "prettier": "^3.3.3"
+        "prettier": "^3.6.2"
     },
     "dependencies": {
         "servor": "^4.0.2"
     }
- }
- 
+}
