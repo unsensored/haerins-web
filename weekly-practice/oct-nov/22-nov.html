@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+   <title>HTML Template</title>
+    <style>
+        .red {
+        background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="container red">
+        <button class="changeColour" onclick="changeColour()">Change Colour</button>
+    </div>
+
+    <script>
+        let currentColourIndex = 0;
+        let container = document.querySelector('.container');
+        let colours = ['red', 'orange', 'yellow', 'green', 'blue'];
+        function changeColour() {
+        let color = colours[currentColourIndex];
+        container.classList.remove(color);
+        currentColourIndex = currentColourIndex + 1;
+
+         if (currentColourIndex > colours.length) {
+            currentColourIndex = 0;
+        }
+
+        color = colours[currentColourIndex]
+        container.classList.add(color);
+
+       
+        
+        
+        
+        }
+    </script>
+ </body>
+</html>
