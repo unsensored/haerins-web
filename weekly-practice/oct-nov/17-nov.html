@@ -2,31 +2,66 @@
 <html lang="en">
   <head>
     <title>HTML Template</title>
+    <style>
+      body {
+        background: rgb(235, 235, 235);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      select {
+        margin-top: 400px;
+        padding: 10px;
+        width: 300px;
+        height: 50px;
+        font-size: 25px;
+      }
+    </style>
   </head>
   <body>
-    <select id="countrySelect"></select>
+    <select>
+      <option class="option1">:flag_au: Click to learn more Australia</option>
+      <option class="option2">:flag_de: Click to learn more Germany</option>
+      <option class="option3">:flag_jp: Click to learn more Japan</option>
+    </select>
+
     <script>
-      let countries = [
-        {
-          name: {
-            common: "Australia",
-          },
-          flag: "🇦🇺",
-        },
-        {
-          name: {
-            common: "Germany",
-          },
-          flag: "🇩🇪",
-        },
-        {
-          name: {
-            common: "Japan",
-          },
-          flag: "🇯🇵",
-        },
-      ];
-      let select = document.getElementById("countrySelect");
+
+                  let option = document.querySelector('option');
+
+                  let select = document.querySelector('select');
+
+                  let countries = [
+                    {
+                      name: {
+                        common: 'Australia',
+                      },
+                      flag:  '🇦🇺',
+                    },
+                    {
+                      name: {
+                        common: 'Germany',
+                      },
+                      flag:  '🇩🇪'
+                    },
+                    {
+                      name: {
+                        common: 'Japan',
+                      },
+                      flag: '🇯🇵',
+                    },
+                  ];
+
+                  for (let i = 0; i < countries.length; i++) {
+                    option.text = countries[i].flag + countries[i].name.common;
+                  }
+
+
+
+                  select.onchange = function () {
+                      selectValue = select.value;
+                    alert(`You have picked` + selectValue);
+                  };
     </script>
   </body>
 </html>
