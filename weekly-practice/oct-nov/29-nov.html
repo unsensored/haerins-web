@@ -91,82 +91,99 @@
     </div>
 
     <script>
-      let images = [
-        {
-          title: "Kill Bill Volume 1",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/100-Kill-Bill-Vol-1-1.jpg",
-        },
-        {
-          title: "Star Wars Episode III: Revenge of the Sith",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/99-Star-Wars-ep-III.jpg",
-        },
-        {
-          title: "Moulin Rouge! ",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/98-Moulin-Rouge.jpg",
-        },
-        {
-          title: "Spider-Man: Far From Home",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/97-Spider-man-Far-from-Home.jpg",
-        },
-        {
-          title: "The Fifth Element",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/96-The-Fifth-Element.jpg",
-        },
-        {
-          title: "Vertigo",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/95-Vertigo.jpg",
-        },
-        {
-          title: "Monty Python's Life of Brian",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/94-Monty-Pythons-Life-of-Brian.jpg",
-        },
-        {
-          title: "There Will Be Blood",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/93-There-Will-Be-Blood.jpg",
-        },
-        {
-          title: "Whiplash",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/92-Whiplash.jpg",
-        },
-        {
-          title: "The Goonies",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/91-The-Goonies.jpg",
-        },
-        {
-          title: "Blade Runner 2049",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/90-Blade-Runner-2049.jpg",
-        },
-        {
-          title: "La La Land",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/89-La-La-Land.jpg",
-        },
-        {
-          title: "The Avengers",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/88-The-Avengers.jpg",
-        },
-        {
-          title: "No Country for Old Men",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/87-No-Country-for-Old-Men.jpg",
-        },
-        {
-          title: "Dead Poets Society",
-          url: "https://images-r2.thebrag.com/rs/uploads/2020/10/86-Dead-Poets-Society.jpg",
-        },
-      ];
-      let container = document.querySelector(".container");
+     let images = [
+  {
+    title: "Kill Bill Volume 1",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/100-Kill-Bill-Vol-1-1.jpg",
+  },
+  {
+    title: "Star Wars Episode III: Revenge of the Sith",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/99-Star-Wars-ep-III.jpg",
+  },
+  {
+    title: "Moulin Rouge! ",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/98-Moulin-Rouge.jpg",
+  },
+  {
+    title: "Spider-Man: Far From Home",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/97-Spider-man-Far-from-Home.jpg",
+  },
+  {
+    title: "The Fifth Element",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/96-The-Fifth-Element.jpg",
+  },
+  {
+    title: "Vertigo",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/95-Vertigo.jpg",
+  },
+  {
+    title: "Monty Python's Life of Brian",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/94-Monty-Pythons-Life-of-Brian.jpg",
+  },
+  {
+    title: "There Will Be Blood",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/93-There-Will-Be-Blood.jpg",
+  },
+  {
+    title: "Whiplash",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/92-Whiplash.jpg",
+  },
+  {
+    title: "The Goonies",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/91-The-Goonies.jpg",
+  },
+  {
+    title: "Blade Runner 2049",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/90-Blade-Runner-2049.jpg",
+  },
+  {
+    title: "La La Land",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/89-La-La-Land.jpg",
+  },
+  {
+    title: "The Avengers",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/88-The-Avengers.jpg",
+  },
+  {
+    title: "No Country for Old Men",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/87-No-Country-for-Old-Men.jpg",
+  },
+  {
+    title: "Dead Poets Society",
+    url: "https://images-r2.thebrag.com/rs/uploads/2020/10/86-Dead-Poets-Society.jpg",
+  },
+];
 
-      for (let i = 0; i < images.length; i++) {
-        let currentItem = images[i];
+let container = document.querySelector(".container");
+let popup = document.querySelector(".info");
+let popupImg = document.querySelector(".info img");
+let popupTitle = document.querySelector(".title");
+let closeBtn = document.querySelector(".info button");
 
-        container.innerHTML =
-          container.innerHTML +
-          `<div onclick="">
-        <img
-          src="${currentItem.url}"
-          alt="${currentItem.title}"  
-        />
-        </div>`;
-      }
+
+for (let i = 0; i < images.length; i++) {
+  let item = images[i];
+
+  container.innerHTML =
+    container.innerHTML +
+    `<div onclick="openPopup('${item.url}', '${item.title}')">
+      <img src="${item.url}" alt="${item.title}">
+    </div>`;
+}
+
+// open
+function openPopup(url, title) {
+  popupImg.src = url;
+  popupTitle.innerText = title;
+
+  popup.classList.remove("unselected");
+}
+
+// close
+closeBtn.onclick = function () {
+  popup.classList.add("unselected");
+};
+
     </script>
   </body>
 </html>
