@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+    <style>
+      /* Task 1*/
+      .square {
+        display: flex;
+        height: 50px;
+        width: 50px;
+        border: black 2px solid;
+        margin: 5px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /*Task 3 + 4*/
+      .animal img {
+        height: 300px;
+      }
+
+      .unselected {
+        display: none;
+      }
+
+      .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.817);
+        width: 100%;
+        height: 100vh;
+      }
+
+      .card {
+        background-color: white;
+        border: white 5px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .card button {
+        width: 60px;
+      }
+
+      .card img {
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Task 1-->
+    <div class="container1">
+      Task 1
+      <button class="button1" onclick="spawnBoxes()">Create 10 Boxes</button>
+      <div id="output"></div>
+    </div>
+
+    <script>
+      function spawnBoxes() {
+        let div = document.getElementById('output');
+        let btn = document.querySelector('.button1');
+
+        for (let i = 0; i < 10; i++) {
+          div.innerHTML += `<div class="square">${i + 1}</div>`;
+        }
+      }
+    </script>
+    <!--Task 2-->
+    <div class="container2">
+      Task 2
+      <ul class="list"></ul>
+    </div>
+
+    <script>
+      function numbers() {
+        let list = document.querySelector('.list');
+
+        for (let i = 0; i < 20; i++) {
+          list.innerHTML += `<li>${i + 1}</li>`;
+        }
+      }
+      numbers();
+    </script>
+    <!--Task 3 + 4-->
+    <div class="container3">
+      <div class="animalsList"></div>
+      <div class="info">
+        <div class="card">
+          <img
+            src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',"
+            alt="dog"
+          />
+          <div class="title">i love vbl ayyayaya</div>
+          <button>close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let animals = [
+        {
+          name: 'dog',
+          image:
+            'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+        },
+        {
+          name: 'cat',
+          image:
+            'https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg',
+        },
+        {
+          name: 'rabbit',
+          image:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDlo8ortNe7ZbwT8xGXBNPnyX46HHjbWm1m7DI1633rndtTWugDPDwzS8Auaf6RuJjB2KtTPldfb9GHcgTWGN4ocqVKeycRyOQTBX23eeK&s=10',
+        },
+      ];
+
+      let container = document.querySelector('.container3');
+      let popup = document.querySelector('.info');
+      let popupImg = document.querySelector('.info img');
+      let popupTitle = document.querySelector('.title');
+      let closeBtn = document.querySelector('.info button');
+
+      function loopAnimals() {
+        for (let i = 0; i < animals.length; i++) {
+          container.innerHTML += `
+          <div class="animal">
+            <img src='${animals[i].image}' alt='${animals[i].name}'>
+          </div>
+        `;
+        }
+      }
+
+      function showCard(animalIndex) {
+        let image = animals[animalIndex];
+
+        popupImg.src = item.url;
+        popupTitle.innerText = item.title;
+
+        popup.classList.remove('unselected');
+      }
+
+      
+    </script>
+  </body>
+</html>
